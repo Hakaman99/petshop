@@ -1,3 +1,137 @@
 #myNavbar ul li a{
 	color: #fff;
 }
+@keyframes fadein {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+
+#popup {
+	width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0,0,0,.7);
+    top: 0;
+    left: 0;
+    z-index: 1;
+    visibility: hidden;
+    animation: fadein 3s;
+}
+
+#popupregis {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background: rgba(0,0,0,.7);
+	top: 0;
+	left: 0;
+	z-index: 9999;
+	visibility: hidden;
+	animation: fadein 3s;
+}
+
+.header-nilai {
+    display: inline-table;
+}
+.window {
+    height: auto;
+    top: 100px;
+    border-radius: 10px;
+    position: relative;
+    display: block;
+    padding: 20px;
+    width: 100%;
+    background-color: #fff;
+    max-width: 300px;
+    box-shadow: 0px 2px 2px black;
+    margin: 5% auto;
+    animation: fadein 3s;
+}
+
+.window img.logo{
+    position: absolute;
+    top: 15px;
+    left: 16%;  
+} 
+  
+.window form h3.caption {
+    padding: 15px 0;
+    padding-right: 500px;
+    color: #f72769;
+    font-family: Calibri;
+}
+
+.window form {
+    margin-top: 50px;
+}
+
+.window form input {
+    padding: 5px;
+    margin-bottom: 5px;
+    outline: none;
+    width: 100%;
+    display: block;
+    border:1px solid #0ac2ff;
+    border-radius: 4px;
+}
+
+.tombol2 {
+	position: relative;
+	left: 20px;
+    background-color:#f72769;
+    border-radius:28px;
+    border:1px solid #fc74ea;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Calibri;
+    font-size:12px;
+    padding:10px 25px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #2f6627;
+    
+}
+
+.tombol2:hover {
+    background-color:#fc3c79;
+    transition:.5s;
+}
+  
+.tombol2:active {
+    position:relative;
+    top:1px;
+}
+
+.close-button {
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    display: block;
+    text-align: center;
+    font-family: Calibri;
+    color: #f72769;
+    font-weight: bold;
+
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#popup:target {
+    visibility: visible;
+}
+
+#popupregis:target {
+    visibility: visible;
+}
+
+.form-group input{
+    width: 200px;
+    border: 1px red;
+    -webkit-transition: width 1s;
+    transition: width 1s;    
+}
+
+.form-group input:focus {
+    width: 500px;
+}

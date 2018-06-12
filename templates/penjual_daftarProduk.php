@@ -108,16 +108,15 @@
             </div>
           </div>
           <ul class="sidebar-menu">
-            <li class="menu-header">Dashboard</li>
             <li class="active">
-              <a href="index.html"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
+              <a href="penjual_index.php"><i class="ion ion-speedometer"></i><span>Home</span></a>
             </li>
             <li class="menu-header">Penjual</li>
             <li>
               <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>Penjualan</span></a>
               <ul class="menu-dropdown">
-                <li><a href="general.html"><i class="ion ion-ios-circle-outline"></i>Order Baru</a></li>
-                <li><a href="components.html"><i class="ion ion-ios-circle-outline"></i>Status Pengiriman</a></li>
+                <li><a href="penjual_orderBaru.php"><i class="ion ion-ios-circle-outline"></i>Order Baru</a></li>
+                <li><a href="penjual_statusPengiriman.php"><i class="ion ion-ios-circle-outline"></i>Status Pengiriman</a></li>
               </ul>
             </li>
             <li>
@@ -131,11 +130,6 @@
               <a href="simple.html"><i class="ion ion-ios-location-outline"></i><span>Google Maps</span></a>
             </li>
            </ul>
-          <div class="p-3 mt-4 mb-4">
-            <a href="#" class="btn btn-danger btn-shadow btn-round has-icon has-icon-nofloat btn-block">
-              <i class="ion ion-help-buoy"></i> <div>PENJUAL</div>
-            </a>
-          </div>
         </aside>
       </div>
       <!-- Page Content -->
@@ -144,65 +138,32 @@
           <h1 class="section-header">
             <div>Daftar Produk</div>
           </h1>
-          <div class="row">
-            <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"><br>
-                  <div class="card-header">
-                    <h4>Makanan Kucing</h4>
-                  </div>
+            <div class="section-body">
+              <div class="row">
+                <div class="col-12">
+                  <div class="card">
                   <div class="card-body">
-                    <p><h5>Jenis : Persia</h5></p>
-                    <p><h5>Harga : $25</h5></p>
-                  </div>
-                </div>
-              </div></center>
+                  <table class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <td>Nama Produk</td>
+                      <td>Jenis Produk</td>
+                      <td>Harga</td>
+                      <td>Untuk Hewan</td>
+                      <td>Keterangan</td>
+                      <td>Gambar</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+
+                   </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"><br>
-                  <div class="card-header">
-                    <h4>Makanan Kucing</h4>
-                  </div>
-                  <div class="card-body">
-                    <p><h5>Jenis : Persia</h5></p>
-                    <p><h5>Harga : $25</h5></p>
-                  </div>
-                </div>
-              </div></center>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"><br>
-                  <div class="card-header">
-                    <h4>Makanan Kucing</h4>
-                  </div>
-                  <div class="card-body">
-                    <p><h5>Jenis : Persia</h5></p>
-                    <p><h5>Harga : $25</h5></p>
-                  </div>
-                </div>
-              </div></center>                 
           </div>
-          <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"><br>
-                  <div class="card-header">
-                    <h4>Makanan Kucing</h4>
-                  </div>
-                  <div class="card-body">
-                    <p><h5>Jenis : Persia</h5></p>
-                    <p><h5>Harga : $25</h5></p>
-                  </div>
-                </div>
-              </div></center>                 
-          </div>
-          </div> 
-        </section>
+        </div>
       </div>
     </div>
       <footer class="main-footer">

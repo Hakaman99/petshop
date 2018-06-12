@@ -108,22 +108,21 @@
             </div>
           </div>
           <ul class="sidebar-menu">
-            <li class="menu-header">Dashboard</li>
             <li class="active">
-              <a href="index.html"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
+              <a href="penjual_index.php"><i class="ion ion-speedometer"></i><span>Home</span></a>
             </li>
             <li class="menu-header">Penjual</li>
             <li>
               <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>Penjualan</span></a>
               <ul class="menu-dropdown">
-                 <li><a href="penjual_daftarProduk.php"><i class="ion ion-ios-circle-outline"></i>Daftar Produk</a></li>
-                <li><a href="penjual_tambahProduk"><i class="ion ion-ios-circle-outline"></i>Tambah Produk</a></li>
+                <li><a href="penjual_orderBaru.php"><i class="ion ion-ios-circle-outline"></i>Order Baru</a></li>
+                <li><a href="penjual_statusPengiriman.php"><i class="ion ion-ios-circle-outline"></i>Status Pengiriman</a></li>
               </ul>
             </li>
             <li>
               <a href="#" class="has-dropdown"><i class="ion ion-clipboard"></i><span>Produk</span></a>
               <ul class="menu-dropdown">
-                <li><a href="daftarProduk_penjual.php"><i class="ion ion-ios-circle-outline"></i>Daftar Produk</a></li>
+                <li><a href="penjual_daftarProduk.php"><i class="ion ion-ios-circle-outline"></i>Daftar Produk</a></li>
                 <li><a href="penjual_tambahProduk.php"><i class="ion ion-ios-circle-outline"></i>Tambah Produk</a></li>
               </ul>
             </li>
@@ -131,87 +130,158 @@
               <a href="simple.html"><i class="ion ion-ios-location-outline"></i><span>Google Maps</span></a>
             </li>
            </ul>
-          <div class="p-3 mt-4 mb-4">
-            <a href="#" class="btn btn-danger btn-shadow btn-round has-icon has-icon-nofloat btn-block">
-              <i class="ion ion-help-buoy"></i> <div>PENJUAL</div>
-            </a>
-          </div>
         </aside>
       </div>
       <!-- Page Content -->
       <div class="main-content">
         <section class="section">
-          <h1 class="section-header">
-            <div>Dashboard</div>
-          </h1>
-          <div class="row">
+          <h2 class="section-header">
+            <div>Rekomendasi</div>
+          </h2>
+                    <div class="row">
             <div class="col-lg-3 col-md-6 col-12">
-              <div class="card card-sm-3">
-                <div class="card-icon bg-primary">
-                  <i class="ion ion-person"></i>
-                </div>
+              <center><div class="card card-sm-3">
                 <div class="card-wrap">
                   <div class="card-header">
-                    <h4>Makanan Kucing</h4>
+                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
                   </div>
                   <div class="card-body">
-                    <p><h5>Jenis : Persia</h5></p>
-                    <p><h5>Harga : $25</h5></p>
+                    <p><h6>Nama  : WhisWhis</h6></p>
+                    <p><h6>Jenis : Persia</h6></p>
+                    <p><h6>Harga : $25</h6></p>
                   </div>
                 </div>
-              </div>
+              </div></center>
             </div>
             <div class="col-lg-3 col-md-6 col-12">
-              <div class="card card-sm-3">
-                <div class="card-icon bg-danger">
-                  <i class="ion ion-ios-paper-outline"></i>
-                </div>
+              <center><div class="card card-sm-3">
                 <div class="card-wrap">
                   <div class="card-header">
-                    <h4>Makanan Kucing</h4>
+                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
                   </div>
                   <div class="card-body">
-                    <p><h5>Jenis : Persia</h5></p>
-                    <p><h5>Harga : $25</h5></p>
+                    <p><h6>Nama  : WhisWhis</h6></p>
+                    <p><h6>Jenis : Persia</h6></p>
+                    <p><h6>Harga : $25</h6></p>
                   </div>
                 </div>
-              </div>
+              </div></center>
             </div>
             <div class="col-lg-3 col-md-6 col-12">
-              <div class="card card-sm-3">
-                <div class="card-icon bg-warning">
-                  <i class="ion ion-paper-airplane"></i>
-                </div>
+              <center><div class="card card-sm-3">
                 <div class="card-wrap">
                   <div class="card-header">
-                    <h4>Makanan Kucing</h4>
+                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
                   </div>
                   <div class="card-body">
-                    <p><h5>Jenis : Persia</h5></p>
-                    <p><h5>Harga : $25</h5></p>
+                    <p><h6>Nama  : WhisWhis</h6></p>
+                    <p><h6>Jenis : Persia</h6></p>
+                    <p><h6>Harga : $25</h6></p>
                   </div>
                 </div>
-              </div>
+              </div></center>
             </div>
             <div class="col-lg-3 col-md-6 col-12">
-              <div class="card card-sm-3">
-                <div class="card-icon bg-success">
-                  <i class="ion ion-record"></i>
-                </div>
-               <div class="card-wrap">
+              <center><div class="card card-sm-3">
+                <div class="card-wrap">
                   <div class="card-header">
-                    <h4>Makanan Kucing</h4>
+                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
                   </div>
                   <div class="card-body">
-                    <p><h5>Jenis : Persia</h5></p>
-                    <p><h5>Harga : $25</h5></p>
+                    <p><h6>Nama  : WhisWhis</h6></p>
+                    <p><h6>Jenis : Persia</h6></p>
+                    <p><h6>Harga : $25</h6></p>
                   </div>
                 </div>
+              </div></center>
+            </div>
+          </div>
+            <div class="section-body">
+              <div class="row">
+                <div class="col-12">
+                  <div class="card">
+                  <div class="card-header">
+                    <center><h4>Pencarian Detail</h4></center>
+                  </div>
+                  <div class="card-body">
+                  <table class="table"><tr>
+                  <td><label>Jenis Hewan</label></td>
+                  <td><input class="form-control" type="" name=""></td></tr>
+                  <tr><td><label>Ras Hewan</label></td>
+                  <td><input class="form-control" type="" name=""></td></tr>
+                  <tr><td><label>Umur Hewan</label></td>
+                  <td><input class="form-control" type="" name=""></td></tr>
+                  </table><br>
+                <button type="submit" class="btn btn-primary btn-block">
+                Submit</button>   
               </div>
-            </div>                  
-          </div>      
-        </section>
-      </div>
+            </div> 
+          </div>
+        </div>
+          <h2 class="section-header">
+            <div>Hasil Pencarian</div>
+          </h2>
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-12">
+              <center><div class="card card-sm-3">
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
+                  </div>
+                  <div class="card-body">
+                    <p><h6>Nama  : WhisWhis</h6></p>
+                    <p><h6>Jenis : Persia</h6></p>
+                    <p><h6>Harga : $25</h6></p>
+                  </div>
+                </div>
+              </div></center>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+              <center><div class="card card-sm-3">
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
+                  </div>
+                  <div class="card-body">
+                    <p><h6>Nama  : WhisWhis</h6></p>
+                    <p><h6>Jenis : Persia</h6></p>
+                    <p><h6>Harga : $25</h6></p>
+                  </div>
+                </div>
+              </div></center>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+              <center><div class="card card-sm-3">
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
+                  </div>
+                  <div class="card-body">
+                    <p><h6>Nama  : WhisWhis</h6></p>
+                    <p><h6>Jenis : Persia</h6></p>
+                    <p><h6>Harga : $25</h6></p>
+                  </div>
+                </div>
+              </div></center>
+            </div>
+            <div class="col-lg-3 col-md-6 col-12">
+              <center><div class="card card-sm-3">
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
+                  </div>
+                  <div class="card-body">
+                    <p><h6>Nama  : WhisWhis</h6></p>
+                    <p><h6>Jenis : Persia</h6></p>
+                    <p><h6>Harga : $25</h6></p>
+                  </div>
+                </div>
+              </div></center>
+            </div>
+          </div>
+      </div> 
+        </div>
+      </section>
     </div>
       <footer class="main-footer">
         <div class="footer-left">

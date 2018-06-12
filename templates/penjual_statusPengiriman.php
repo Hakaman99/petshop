@@ -136,51 +136,51 @@
       <div class="main-content">
         <section class="section">
           <h1 class="section-header">
-            <div>Tambah Produk</div>
+            <div>Status Pengiriman</div>
           </h1>
             <div class="section-body">
               <div class="row">
                 <div class="col-12">
                   <div class="card">
-                  <div class="card-header">
-                    <h4>Masukkan Detail Produk</h4>
-                  </div>
                   <div class="card-body">
                   <table class="table">
                   <thead class="thead-dark">
                     <tr>
-                      <td>Nama Produk</td>
-                      <td>Jenis Produk</td>
-                      <td>Harga</td>
-                      <td>Untuk Hewan</td>
-                      <td>Keterangan</td>
-                      <td>Gambar</td>
+                      <td>Nama Barang</td>
+                      <td>Nama Pembeli</td>
+                      <td>Alamat</td>
+                      <td>Status Pengiriman</td>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td><input class="form-control" type="" name=""></td>
-                      <td><input class="form-control" type="" name=""></td>
-                      <td><input class="form-control" type="" name=""></td>
-                      <td><input class="form-control" type="" name=""></td>
-                      <td><input class="form-control" type="" name=""></td>
-                      <td><div class="custom-file">
-                      <input type="file" class="custom-file-input" id="customFile">
-                      <label class="custom-file-label" for="customFile">Choose file</label>
-                      </div></td>
-                   </tr>
-                  </tbody>
-                </table>
-                <button type="submit" class="btn btn-primary btn-block">
-                Submit</button>   
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td>
+                        <div class="form-group">
+                        <select class="form-control" id="exampleFormControlSelect1">
+                          <option>Konfirmasi Penerimaan Pembayaran</option>
+                          <option>Proses Packing</option>
+                          <option>Proses Pengantaran Oleh Kurir</option>
+                          <option>Pesanan Telah Diantar</option>
+                        </select>
+                      </div>
+                      </td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+          <button type="submit" class="btn btn-primary btn-block">
+                Update</button>
+
               </div>
-            </div> 
+            </div>
           </div>
         </div>
       </div>
-        </section>
-      </div>
     </div>
+  
       <footer class="main-footer">
         <div class="footer-left">
           Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://multinity.com/">Multinity</a>

@@ -136,15 +136,12 @@
       <div class="main-content">
         <section class="section">
           <h1 class="section-header">
-            <div>Tambah Produk</div>
+            <div>Order Baru</div>
           </h1>
             <div class="section-body">
               <div class="row">
                 <div class="col-12">
                   <div class="card">
-                  <div class="card-header">
-                    <h4>Masukkan Detail Produk</h4>
-                  </div>
                   <div class="card-body">
                   <table class="table">
                   <thead class="thead-dark">
@@ -152,33 +149,29 @@
                       <td>Nama Produk</td>
                       <td>Jenis Produk</td>
                       <td>Harga</td>
-                      <td>Untuk Hewan</td>
+                      <td>Nama Pembeli</td>
+                      <td>Alamat Pembeli</td>
                       <td>Keterangan</td>
-                      <td>Gambar</td>
+                      <td>Status</td>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td><input class="form-control" type="" name=""></td>
-                      <td><input class="form-control" type="" name=""></td>
-                      <td><input class="form-control" type="" name=""></td>
-                      <td><input class="form-control" type="" name=""></td>
-                      <td><input class="form-control" type="" name=""></td>
-                      <td><div class="custom-file">
-                      <input type="file" class="custom-file-input" id="customFile">
-                      <label class="custom-file-label" for="customFile">Choose file</label>
-                      </div></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td><button type="submit" class="btn btn-primary btn-block">
+                Process</button> </td>
                    </tr>
                   </tbody>
                 </table>
-                <button type="submit" class="btn btn-primary btn-block">
-                Submit</button>   
               </div>
-            </div> 
+            </div>
           </div>
         </div>
-      </div>
-        </section>
       </div>
     </div>
       <footer class="main-footer">

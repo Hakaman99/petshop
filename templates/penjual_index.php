@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <?php include('config/connect.php'); ?>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
   <title>Dashboard &mdash; Stisla</title>
@@ -138,63 +139,32 @@
           <h2 class="section-header">
             <div>Rekomendasi</div>
           </h2>
-                    <div class="row">
-            <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <div class="card-header">
-                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
-                  </div>
-                  <div class="card-body">
-                    <p><h6>Nama  : WhisWhis</h6></p>
-                    <p><h6>Jenis : Persia</h6></p>
-                    <p><h6>Harga : $25</h6></p>
-                  </div>
+            <div class="row">
+
+              <?php
+                $sql = "SELECT * FROM barang";
+                $result = mysqli_query($con, $sql);
+                while ($row = mysqli_fetch_array($result)) {
+                  ?>
+                  <div class="col-lg-3 col-md-6 col-12">
+                  <center><div class="card card-sm-3">
+                    <div class="card-wrap">
+                      <div class="card-header">
+                        <div class="panel-body" ><img src="images/<?=$row['gambar'];?>" class="img-responsive" width="202" height="173" alt="Image"></div>
+                      </div>
+                      <div class="card-body">
+                        <p><h6>Nama      : <?=$row['nama'];?></h6></p>
+                        <p><h6>Kategori  : <?=$row['kategori'];?></h6></p>
+                        <p><h6>Harga     : Rp. <?=$row['harga'];?></h6></p>
+                      </div>
+                    </div>
+                  </div></center>
                 </div>
-              </div></center>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <div class="card-header">
-                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
-                  </div>
-                  <div class="card-body">
-                    <p><h6>Nama  : WhisWhis</h6></p>
-                    <p><h6>Jenis : Persia</h6></p>
-                    <p><h6>Harga : $25</h6></p>
-                  </div>
-                </div>
-              </div></center>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <div class="card-header">
-                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
-                  </div>
-                  <div class="card-body">
-                    <p><h6>Nama  : WhisWhis</h6></p>
-                    <p><h6>Jenis : Persia</h6></p>
-                    <p><h6>Harga : $25</h6></p>
-                  </div>
-                </div>
-              </div></center>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <div class="card-header">
-                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
-                  </div>
-                  <div class="card-body">
-                    <p><h6>Nama  : WhisWhis</h6></p>
-                    <p><h6>Jenis : Persia</h6></p>
-                    <p><h6>Harga : $25</h6></p>
-                  </div>
-                </div>
-              </div></center>
-            </div>
+                  <?php
+                }
+
+              ?>
+            
           </div>
             <div class="section-body">
               <div class="row">

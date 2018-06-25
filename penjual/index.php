@@ -131,7 +131,7 @@
               </ul>
             </li>
             <li>
-              <a href="simple.html"><i class="ion ion-ios-location-outline"></i><span>Google Maps</span></a>
+              <a href="#"><i class="ion ion-ios-location-outline"></i><span>Google Maps</span></a>
             </li>
            </ul>
         </aside>

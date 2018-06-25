@@ -28,7 +28,7 @@
             </div>
 
             <div class="card card-primary">
-              <div class="card-header"><h4>Register</h4></div>
+              <div class="card-header"><a href="index.php"><span class="ion ion-home" style="font-size: 120%;font-weight: bold;"> Home</span></a></div>
               <div class="card-body">
                 <form method="POST" action="process/register.php">
                   <div class="row">

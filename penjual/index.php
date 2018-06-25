@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php include('config/connect.php'); ?>
+  <?php include('config/connect.php');
+  include('akses.php');
+  include('data.php');
+  error_reporting(0); ?>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
   <title>Dashboard &mdash; Stisla</title>
@@ -23,7 +26,7 @@
       <nav class="navbar navbar-expand-lg main-navbar">
         <form class="form-inline mr-auto">
           <ul class="navbar-nav mr-3">
-            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a></li>
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg test"><i class="ion ion-navicon-round"></i></a></li>
             <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="ion ion-search"></i></a></li>
           </ul>
           <div class="search-element">
@@ -80,12 +83,12 @@
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
             <i class="ion ion-android-person d-lg-none"></i>
-            <div class="d-sm-none d-lg-inline-block">Hi, HKmen</div></a>
+            <div class="d-sm-none d-lg-inline-block">Hi, <?= $data['nama_depan']?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="profile.html" class="dropdown-item has-icon">
                 <i class="ion ion-android-person"></i> Profile
               </a>
-              <a href="#" class="dropdown-item has-icon">
+              <a href="logout.php" class="dropdown-item has-icon">
                 <i class="ion ion-log-out"></i> Logout
               </a>
             </div>
@@ -102,7 +105,7 @@
               <img alt="image" src="../dist/img/avatar/avatar-1.jpeg">
             </div>
             <div class="sidebar-user-details">
-              <div class="user-name">HKmen</div>
+              <div class="user-name"><?=$data['nama_depan'];?></div>
               <div class="user-role">
                 PENJUAL
               </div>
@@ -150,7 +153,7 @@
                   <center><div class="card card-sm-3">
                     <div class="card-wrap">
                       <div class="card-header">
-                        <div class="panel-body" ><img src="images/<?=$row['gambar'];?>" class="img-responsive" width="202" height="173" alt="Image"></div>
+                        <div class="panel-body" ><img src="../images/<?=$row['gambar'];?>" class="img-responsive" width="202" height="173" alt="Image"></div>
                       </div>
                       <div class="card-body">
                         <p><h6>Nama      : <?=$row['nama'];?></h6></p>
@@ -318,5 +321,10 @@
   <script src="../dist/js/scripts.js"></script>
   <script src="../dist/js/custom.js"></script>
   <script src="../dist/js/demo.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.test').trigger('click');
+    })
+</script>
 </body>
 </html>

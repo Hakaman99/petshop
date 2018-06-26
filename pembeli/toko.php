@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <?php include('config/connect.php');?>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
-  <title>Dashboard &mdash; Stisla</title>
+  <title>Buka Toko</title>
 
   <link rel="stylesheet" href="../dist/modules/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="../dist/modules/ionicons/css/ionicons.min.css">
@@ -103,7 +104,7 @@
             <div class="sidebar-user-details">
               <div class="user-name">HKmen</div>
               <div class="user-role">
-                PENJUAL
+                PEMBELI
               </div>
             </div>
           </div>
@@ -111,135 +112,186 @@
             <li class="active">
               <a href="index.php"><i class="ion ion-speedometer"></i><span>Home</span></a>
             </li>
-            <li class="menu-header">Penjual</li>
+            <li >
+              <a href="toko.php"><i class="ion ion-briefcase"></i><span>Buka Toko</span></a>
+            </li> 
+            <li class="menu-header">Pembeli</li>
             <li>
-              <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>Penjualan</span></a>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>Pembelian</span></a>
               <ul class="menu-dropdown">
-                <li><a href="penjual_orderBaru.php"><i class="ion ion-ios-circle-outline"></i>Order Baru</a></li>
-                <li><a href="penjual_statusPengiriman.php"><i class="ion ion-ios-circle-outline"></i>Status Pengiriman</a></li>
+                <li><a href="pembeli_statusPengiriman.php"><i class="ion ion-ios-circle-outline"></i>Status Pengiriman</a></li>
               </ul>
             </li>
             <li>
-              <a href="#" class="has-dropdown"><i class="ion ion-clipboard"></i><span>Produk</span></a>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-copy-outline"></i><span>Transaksi</span></a>
               <ul class="menu-dropdown">
-                <li><a href="penjual_daftarProduk.php"><i class="ion ion-ios-circle-outline"></i>Daftar Produk</a></li>
-                <li><a href="penjual_tambahProduk.php"><i class="ion ion-ios-circle-outline"></i>Tambah Produk</a></li>
+                <li><a href="pembeli_keranjangBelanja.php"><i class="ion ion-ios-circle-outline"></i>Keranjang Belanja</a></li>
+                <li><a href="pembeli_daftarPembelian.php"><i class="ion ion-ios-circle-outline"></i>Daftar Pembelian</a></li>
               </ul>
             </li>
             <li>
               <a href="simple.html"><i class="ion ion-ios-location-outline"></i><span>Google Maps</span></a>
             </li>
-           </ul>
+          </ul>
         </aside>
       </div>
       <!-- Page Content -->
       <div class="main-content">
         <section class="section">
           <h1 class="section-header">
-            <div>Status Pengiriman</div>
+            <div>Buka Toko</div>
           </h1>
-            <div class="section-body">
-              <div class="row">
-                <div class="col-12">
-                  <div class="card">
+          <div class="section-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
                   <div class="card-body">
-                  <table class="table">
-                  <thead class="thead-dark">
-                    <tr>
-                      <td>Nama Barang</td>
-                      <td>Nama Pembeli</td>
-                      <td>Alamat</td>
-                      <td>Status Pengiriman</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>
-                        <div class="form-group">
-                        <select class="form-control" id="exampleFormControlSelect1">
-                          <option>Konfirmasi Penerimaan Pembayaran</option>
-                          <option>Proses Packing</option>
-                          <option>Proses Pengantaran Oleh Kurir</option>
-                          <option>Pesanan Telah Diantar</option>
-                        </select>
-                      </div>
-                      </td>
-              </tr>
-            </tbody>
-          </table>
-          <br>
-          <button type="submit" class="btn btn-primary btn-block">
-                Update</button>
 
+                    <form method="POST" action="process/toko.php">
+
+                      <div class="form-group">
+                        <label for="nama_toko">Nama Toko</label>
+                        <input type="text" class="form-control" name="nama_toko">
+                      </div>
+
+                      <div class="form-divider">
+                        Your Store
+                      </div>
+                      <div class="form-group">
+                        <label for="alamat_toko">Alamat toko</label>
+                        <input  type="text" class="form-control" name="alamat_toko">
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-6">
+                          <label>Provinsi</label>
+                          <select class="form-control" name="provinsi" id="provinsi">
+                            <option>Pilih Provinsi</option>
+                            <?php
+                            $sql = "SELECT * FROM provinsi";
+                            $result = mysqli_query($con,$sql);
+                            while ($row = mysqli_fetch_array($result)) {
+                              ?>
+                              <option value="<?=$row['id'];?>"><?=$row['nama'];?></option>
+                              <?php
+                            }
+                            ?>
+                          </select>
+                        </div>
+                        <div class="form-group col-6">
+                          <label>Nomor Telepon</label>
+                          <input class="form-control" type="number" name="telp">
+                        </div>
+                      </div>  
+                      <div class="row">
+                        <div class="form-group col-6">
+                          <label>City</label>
+                          <select class="form-control" name="city" id="kota">
+                            <option>Pilih Kota</option>
+                          </select>
+                        </div>
+                        <div class="form-group col-6">
+                          <label>Postal Code</label>
+                          <input type="number" class="form-control" name="postal_code">
+                        </div>
+                      </div>
+
+
+                      <div class="form-group">
+                        <button type="submit" name="submit" class="btn btn-primary btn-block">
+                          Register
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        <footer class="main-footer">
+          <div class="footer-left">
+            Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://multinity.com/">Multinity</a>
+          </div>
+          <div class="footer-right"></div>
+        </footer>
       </div>
     </div>
-  
-      <footer class="main-footer">
-        <div class="footer-left">
-          Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://multinity.com/">Multinity</a>
-        </div>
-        <div class="footer-right"></div>
-      </footer>
-    </div>
-  </div>
 
-  <script src="../dist/modules/jquery.min.js"></script>
-  <script src="../dist/modules/popper.js"></script>
-  <script src="../dist/modules/tooltip.js"></script>
-  <script src="../dist/modules/bootstrap/js/bootstrap.min.js"></script>
-  <script src="../dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
-  <script src="../dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
-  <script src="../dist/js/sa-functions.js"></script>
-  
-  <script src="../dist/modules/chart.min.js"></script>
-  <script src="../dist/modules/summernote/summernote-lite.js"></script>
+    <script src="../dist/modules/jquery.min.js"></script>
+    <script src="../dist/modules/popper.js"></script>
+    <script src="../dist/modules/tooltip.js"></script>
+    <script src="../dist/modules/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="../dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+    <script src="../dist/js/sa-functions.js"></script>
 
-  <script>
-  var ctx = document.getElementById("myChart").getContext('2d');
-  var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      datasets: [{
-        label: 'Statistics',
-        data: [460, 458, 330, 502, 430, 610, 488],
-        borderWidth: 2,
-        backgroundColor: 'rgb(87,75,144)',
-        borderColor: 'rgb(87,75,144)',
-        borderWidth: 2.5,
-        pointBackgroundColor: '#ffffff',
-        pointRadius: 4
-      }]
-    },
-    options: {
-      legend: {
-        display: false
-      },
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true,
-            stepSize: 150
-          }
-        }],
-        xAxes: [{
-          gridLines: {
+    <script src="../dist/modules/chart.min.js"></script>
+    <script src="../dist/modules/summernote/summernote-lite.js"></script>
+
+    <script>
+      var ctx = document.getElementById("myChart").getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          datasets: [{
+            label: 'Statistics',
+            data: [460, 458, 330, 502, 430, 610, 488],
+            borderWidth: 2,
+            backgroundColor: 'rgb(87,75,144)',
+            borderColor: 'rgb(87,75,144)',
+            borderWidth: 2.5,
+            pointBackgroundColor: '#ffffff',
+            pointRadius: 4
+          }]
+        },
+        options: {
+          legend: {
             display: false
+          },
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                stepSize: 150
+              }
+            }],
+            xAxes: [{
+              gridLines: {
+                display: false
+              }
+            }]
+          },
+        }
+      });
+    </script>
+    <script src="../dist/js/scripts.js"></script>
+    <script src="../dist/js/custom.js"></script>
+    <script src="../dist/js/demo.js"></script>
+      <script>
+    $('#password, #password2').on('keyup', function () {
+      if ($('#password').val() != $('#password2').val()) {
+        $('#message').html('Password Tidak Cocok!').css('color', 'red');
+      }else{
+        $('#message').html('').css('color', 'red');
+      }
+      }
+    );
+        $(document).ready(function(){
+      $("#provinsi").change(function(){
+        var provinsi_id = $(this).val();
+
+        $.ajax({
+          type: 'POST',
+          url: 'kota.php',
+          data: 'prov_id='+provinsi_id,
+          success: function(response){
+            $('#kota').html(response);
           }
-        }]
-      },
-    }
-  });
+        });
+      })
+    });
   </script>
-  <script src="../dist/js/scripts.js"></script>
-  <script src="../dist/js/custom.js"></script>
-  <script src="../dist/js/demo.js"></script>
-</body>
-</html>
+  </body>
+  </html>

@@ -109,7 +109,7 @@
           </div>
           <ul class="sidebar-menu">
             <li class="active">
-              <a href="penjual_index.php"><i class="ion ion-speedometer"></i><span>Home</span></a>
+              <a href="index.php"><i class="ion ion-speedometer"></i><span>Home</span></a>
             </li>
             <li class="menu-header">Penjual</li>
             <li>

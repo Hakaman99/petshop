@@ -1,3 +1,11 @@
-#myNavbar ul li a{
-	color: #fff;
+
+.search-element input{
+    width: 200px;
+    border: 1px red;
+    -webkit-transition: width 1s;
+    transition: width 1s;    
+}
+
+.search-element input:focus {
+    width: 500px;
 }

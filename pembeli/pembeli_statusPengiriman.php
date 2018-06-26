@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include('config/connect.php');
-  include('akses.php');
-  include('data.php');
-  error_reporting(0); ?>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
   <title>Dashboard &mdash; Stisla</title>
@@ -107,7 +103,7 @@
             <div class="sidebar-user-details">
               <div class="user-name">HKmen</div>
               <div class="user-role">
-                PENJUAL
+                PEMBELI
               </div>
             </div>
           </div>
@@ -115,19 +111,21 @@
             <li class="active">
               <a href="index.php"><i class="ion ion-speedometer"></i><span>Home</span></a>
             </li>
-            <li class="menu-header">Penjual</li>
+            <li >
+              <a href="toko.php"><i class="ion ion-briefcase"></i><span>Buka Toko</span></a>
+            </li> 
+            <li class="menu-header">Pembeli</li>
             <li>
-              <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>Penjualan</span></a>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>Pembelian</span></a>
               <ul class="menu-dropdown">
-                <li><a href="penjual_orderBaru.php"><i class="ion ion-ios-circle-outline"></i>Order Baru</a></li>
-                <li><a href="penjual_statusPengiriman.php"><i class="ion ion-ios-circle-outline"></i>Status Pengiriman</a></li>
+                <li><a href="pembeli_statusPengiriman.php"><i class="ion ion-ios-circle-outline"></i>Status Pengiriman</a></li>
               </ul>
             </li>
             <li>
-              <a href="#" class="has-dropdown"><i class="ion ion-clipboard"></i><span>Produk</span></a>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-copy-outline"></i><span>Transaksi</span></a>
               <ul class="menu-dropdown">
-                <li><a href="penjual_daftarProduk.php"><i class="ion ion-ios-circle-outline"></i>Daftar Produk</a></li>
-                <li><a href="penjual_tambahProduk.php"><i class="ion ion-ios-circle-outline"></i>Tambah Produk</a></li>
+                <li><a href="pembeli_keranjangBelanja.php"><i class="ion ion-ios-circle-outline"></i>Keranjang Belanja</a></li>
+                <li><a href="pembeli_daftarPembelian.php"><i class="ion ion-ios-circle-outline"></i>Daftar Pembelian</a></li>
               </ul>
             </li>
             <li>
@@ -140,53 +138,38 @@
       <div class="main-content">
         <section class="section">
           <h1 class="section-header">
-            <div>Daftar Produk</div>
+            <div>Status Pengiriman</div>
           </h1>
             <div class="section-body">
               <div class="row">
                 <div class="col-12">
                   <div class="card">
                   <div class="card-body">
-                  <table class="table" style="text-align: center;">
+                  <table class="table">
                   <thead class="thead-dark">
                     <tr>
-                      <th width="5%">No</th>
-                      <th width="15%">Nama Produk</th>
-                      <th width="10%">Kategori</th>
-                      <th width="10%">Fungsi</th>
-                      <th width="10%">Harga</th>
-                      <th width="50%">Keterangan</th>
-<!--                       <th>Gambar</th> -->
+                      <td>Nama Barang</td>
+                      <td>Nama Pembeli</td>
+                      <td>Alamat</td>
+                      <td>Status Pengiriman</td>
                     </tr>
                   </thead>
                   <tbody>
-
-                    <?php
-                    $id =$data['id'];
-                      $sql = "SELECT * from barang WHERE id_user ='$id'";
-                      $result =mysqli_query($con,$sql);
-                      $i=1;
-                      while ($row = mysqli_fetch_array($result)) {
-                    ?>
                     <tr>
-                      <td width="5%"><?= $i++;?></td>
-                      <td width="15%"><?=$row['nama'];?></td>
-                      <td width="10%"><?=$row['kategori'];?></td>
-                      <td width="10%"><?=$row['fungsi'];?></td>
-                      <td width="10%"><?=$row['harga'];?></td>
-                      <td width="50%" ><?=$row['deskripsi'];?></td>
-                   </tr>
-                   <?php
-                   }
-                   ?>
-                  </tbody>
-                </table>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+              </tr>
+            </tbody>
+          </table>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  
       <footer class="main-footer">
         <div class="footer-left">
           Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://multinity.com/">Multinity</a>

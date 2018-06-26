@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php include('config/connect.php'); ?>
+  <?php include('config/connect.php');
+  include('akses.php'); ?>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
   <title>Wakwaw Shop</title>

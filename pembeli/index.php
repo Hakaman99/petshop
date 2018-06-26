@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php include('config/connect.php');
+  include('akses.php');
+  include('data.php');
+  ?>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
-  <title>Dashboard &mdash; Stisla</title>
+  <title>Dashboard Wakwaw</title>
 
   <link rel="stylesheet" href="../dist/modules/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="../dist/modules/ionicons/css/ionicons.min.css">
@@ -22,7 +26,7 @@
       <nav class="navbar navbar-expand-lg main-navbar">
         <form class="form-inline mr-auto">
           <ul class="navbar-nav mr-3">
-            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="ion ion-navicon-round"></i></a></li>
+            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg test"><i class="ion ion-navicon-round"></i></a></li>
             <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="ion ion-search"></i></a></li>
           </ul>
           <div class="search-element">
@@ -79,7 +83,7 @@
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
             <i class="ion ion-android-person d-lg-none"></i>
-            <div class="d-sm-none d-lg-inline-block">Hi, HKmen</div></a>
+            <div class="d-sm-none d-lg-inline-block">Hi, <?=$data['nama_depan']?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="profile.html" class="dropdown-item has-icon">
                 <i class="ion ion-android-person"></i> Profile
@@ -101,7 +105,7 @@
               <img alt="image" src="../dist/img/avatar/avatar-1.jpeg">
             </div>
             <div class="sidebar-user-details">
-              <div class="user-name">HKmen</div>
+              <div class="user-name"><?=$data['nama_depan']?></div>
               <div class="user-role">
                 PEMBELI
               </div>
@@ -110,6 +114,9 @@
           <ul class="sidebar-menu">
             <li class="active">
               <a href="pembeli_index.php"><i class="ion ion-speedometer"></i><span>Home</span></a>
+            </li>
+            <li >
+              <a href="toko.php"><i class="ion ion-briefcase"></i><span>Buka Toko</span></a>
             </li>
             <li class="menu-header">Pembeli</li>
             <li>
@@ -126,7 +133,7 @@
               </ul>
             </li>
             <li>
-              <a href="simple.html"><i class="ion ion-ios-location-outline"></i><span>Google Maps</span></a>
+              <a href="#"><i class="ion ion-ios-location-outline"></i><span>Google Maps</span></a>
             </li>
            </ul>
         </aside>
@@ -137,63 +144,32 @@
           <h2 class="section-header">
             <div>Rekomendasi</div>
           </h2>
-                    <div class="row">
-            <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <div class="card-header">
-                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
-                  </div>
-                  <div class="card-body">
-                    <p><h6>Nama  : WhisWhis</h6></p>
-                    <p><h6>Jenis : Persia</h6></p>
-                    <p><h6>Harga : $25</h6></p>
-                  </div>
+            <div class="row">
+
+              <?php
+                $sql = "SELECT * FROM barang";
+                $result = mysqli_query($con, $sql);
+                while ($row = mysqli_fetch_array($result)) {
+                  ?>
+                  <div class="col-lg-3 col-md-6 col-12">
+                  <center><div class="card card-sm-3">
+                    <div class="card-wrap">
+                      <div class="card-header">
+                        <div class="panel-body" ><img src="../images/<?=$row['gambar'];?>" class="img-responsive" width="202" height="173" alt="Image"></div>
+                      </div>
+                      <div class="card-body">
+                        <p><h6>Nama      : <?=$row['nama'];?></h6></p>
+                        <p><h6>Kategori  : <?=$row['kategori'];?></h6></p>
+                        <p><h6>Harga     : Rp. <?=number_format($row['harga'],0,"",".");?></h6></p>
+                      </div>
+                    </div>
+                  </div></center>
                 </div>
-              </div></center>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <div class="card-header">
-                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
-                  </div>
-                  <div class="card-body">
-                    <p><h6>Nama  : WhisWhis</h6></p>
-                    <p><h6>Jenis : Persia</h6></p>
-                    <p><h6>Harga : $25</h6></p>
-                  </div>
-                </div>
-              </div></center>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <div class="card-header">
-                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
-                  </div>
-                  <div class="card-body">
-                    <p><h6>Nama  : WhisWhis</h6></p>
-                    <p><h6>Jenis : Persia</h6></p>
-                    <p><h6>Harga : $25</h6></p>
-                  </div>
-                </div>
-              </div></center>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <div class="card-header">
-                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
-                  </div>
-                  <div class="card-body">
-                    <p><h6>Nama  : WhisWhis</h6></p>
-                    <p><h6>Jenis : Persia</h6></p>
-                    <p><h6>Harga : $25</h6></p>
-                  </div>
-                </div>
-              </div></center>
-            </div>
+                  <?php
+                }
+
+              ?>
+            
           </div>
             <div class="section-body">
               <div class="row">
@@ -342,5 +318,11 @@
   <script src="../dist/js/scripts.js"></script>
   <script src="../dist/js/custom.js"></script>
   <script src="../dist/js/demo.js"></script>
+    <script src="../dist/js/demo.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('.test').trigger('click');
+    })
+</script>
 </body>
 </html>

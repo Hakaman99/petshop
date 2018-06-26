@@ -11,14 +11,18 @@
 		$jumlah = mysqli_num_rows($query);
 
 		if($jumlah == 1){
-			if ($result == 1) {
-				$_SESSION['level'] = 1;
-				$_SESSION['email'] = $result['email'];
-				echo '<script language = "javascript"> alert("Login Success!"); document.location="../../admin/index.php"</script>';
-			} else{
+			if ($result['level'] == 0) {
 				$_SESSION['level'] = 0;
-				$_SESSION['email'] = $result['email'];
+				$_SESSION['id'] = $result['id'];
+				echo '<script language = "javascript"> alert("Login Success!"); document.location="../../pembeli/index.php"</script>';
+			} else if($result['level'] == 1) {
+				$_SESSION['level'] = 1;
+				$_SESSION['id'] = $result['id'];
 				echo '<script language = "javascript"> alert("Login Success!"); document.location="../../penjual/index.php"</script>';
+			} else if ($result['level'] == 2){
+				$_SESSION['level'] = 2;
+				$_SESSION['id'] = $result['id'];
+				echo '<script language = "javascript"> alert("Login Success!"); document.location="../../admin/index.php"</script>';
 			}
 
 		}else{

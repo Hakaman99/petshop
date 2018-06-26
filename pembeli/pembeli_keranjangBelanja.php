@@ -109,7 +109,10 @@
           </div>
           <ul class="sidebar-menu">
             <li class="active">
-              <a href="pembeli_index.php"><i class="ion ion-speedometer"></i><span>Home</span></a>
+              <a href="index.php"><i class="ion ion-speedometer"></i><span>Home</span></a>
+            </li>
+            <li >
+              <a href="toko.php"><i class="ion ion-briefcase"></i><span>Buka Toko</span></a>
             </li>
             <li class="menu-header">Pembeli</li>
             <li>

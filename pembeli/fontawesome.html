@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include('config/connect.php');
-  include('akses.php');
-  include('data.php');
-  error_reporting(0); ?>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
-  <title>Dashboard &mdash; Stisla</title>
+  <title>Icons &rsaquo; Fontawesome &mdash; Stisla</title>
 
   <link rel="stylesheet" href="../dist/modules/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="../dist/modules/ionicons/css/ionicons.min.css">
   <link rel="stylesheet" href="../dist/modules/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css">
 
-  <link rel="stylesheet" href="../dist/modules/summernote/summernote-lite.css">
-  <link rel="stylesheet" href="../dist/modules/flag-icon-css/css/flag-icon.min.css">
   <link rel="stylesheet" href="../dist/css/demo.css">
   <link rel="stylesheet" href="../dist/css/style.css">
 </head>
@@ -83,7 +77,7 @@
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
             <i class="ion ion-android-person d-lg-none"></i>
-            <div class="d-sm-none d-lg-inline-block">Hi, HKmen</div></a>
+            <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="profile.html" class="dropdown-item has-icon">
                 <i class="ion ion-android-person"></i> Profile
@@ -98,95 +92,129 @@
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">PETSHOP</a>
+            <a href="index.html">Stisla Lite</a>
           </div>
           <div class="sidebar-user">
             <div class="sidebar-user-picture">
               <img alt="image" src="../dist/img/avatar/avatar-1.jpeg">
             </div>
             <div class="sidebar-user-details">
-              <div class="user-name">HKmen</div>
+              <div class="user-name">Ujang Maman</div>
               <div class="user-role">
-                PENJUAL
+                Administrator
               </div>
             </div>
           </div>
           <ul class="sidebar-menu">
+            <li class="menu-header">Dashboard</li>
+            <li>
+              <a href="index.html"><i class="ion ion-speedometer"></i><span>Dashboard</span></a>
+            </li>
+
+            <li class="menu-header">Components</li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>Components</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="general.html"><i class="ion ion-ios-circle-outline"></i> Basic</a></li>
+                <li><a href="components.html"><i class="ion ion-ios-circle-outline"></i> Main Components</a></li>
+                <li><a href="buttons.html"><i class="ion ion-ios-circle-outline"></i> Buttons</a></li>
+                <li><a href="toastr.html"><i class="ion ion-ios-circle-outline"></i> Toastr</a></li>
+              </ul>
+            </li>
             <li class="active">
-              <a href="index.php"><i class="ion ion-speedometer"></i><span>Home</span></a>
-            </li>
-            <li class="menu-header">Penjual</li>
-            <li>
-              <a href="#" class="has-dropdown"><i class="ion ion-ios-albums-outline"></i><span>Penjualan</span></a>
+              <a href="#" class="has-dropdown"><i class="ion ion-flag"></i><span>Icons</span></a>
               <ul class="menu-dropdown">
-                <li><a href="penjual_orderBaru.php"><i class="ion ion-ios-circle-outline"></i>Order Baru</a></li>
-                <li><a href="penjual_statusPengiriman.php"><i class="ion ion-ios-circle-outline"></i>Status Pengiriman</a></li>
+                <li><a href="ion-icons.html"><i class="ion ion-ios-circle-outline"></i> Ion Icons</a></li>
+                <li class="active"><a href="fontawesome.html"><i class="ion ion-ios-circle-outline"></i> Font Awesome</a></li>
+                <li><a href="flag.html"><i class="ion ion-ios-circle-outline"></i> Flag</a></li>
               </ul>
             </li>
             <li>
-              <a href="#" class="has-dropdown"><i class="ion ion-clipboard"></i><span>Produk</span></a>
-              <ul class="menu-dropdown">
-                <li><a href="penjual_daftarProduk.php"><i class="ion ion-ios-circle-outline"></i>Daftar Produk</a></li>
-                <li><a href="penjual_tambahProduk.php"><i class="ion ion-ios-circle-outline"></i>Tambah Produk</a></li>
-              </ul>
+              <a href="table.html"><i class="ion ion-clipboard"></i><span>Tables</span></a>
+            </li>
+            <li>
+              <a href="chartjs.html"><i class="ion ion-stats-bars"></i><span>Chart.js</span></a>
             </li>
             <li>
               <a href="simple.html"><i class="ion ion-ios-location-outline"></i><span>Google Maps</span></a>
             </li>
-           </ul>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-copy-outline"></i><span>Examples</span></a>
+              <ul class="menu-dropdown">
+                <li><a href="login.html"><i class="ion ion-ios-circle-outline"></i> Login</a></li>
+                <li><a href="register.html"><i class="ion ion-ios-circle-outline"></i> Register</a></li>
+                <li><a href="forgot.html"><i class="ion ion-ios-circle-outline"></i> Forgot Password</a></li>
+                <li><a href="reset.html"><i class="ion ion-ios-circle-outline"></i> Reset Password</a></li>
+                <li><a href="404.html"><i class="ion ion-ios-circle-outline"></i> 404</a></li>
+              </ul>
+            </li>
+
+            <li class="menu-header">More</li>
+            <li>
+              <a href="#" class="has-dropdown"><i class="ion ion-ios-nutrition"></i> Click Me</a>
+              <ul class="menu-dropdown">
+                <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Menu 1</a></li>
+                <li><a href="#" class="has-dropdown"><i class="ion ion-ios-circle-outline"></i> Menu 2</a>
+                  <ul class="menu-dropdown">
+                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 1</a></li>
+                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 2</a></li>
+                    <li><a href="#" class="has-dropdown"><i class="ion ion-ios-circle-outline"></i> Child Menu 3</a>
+                      <ul class="menu-dropdown">
+                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 1</a></li>
+                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 2</a></li>
+                        <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 3</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#"><i class="ion ion-ios-circle-outline"></i> Child Menu 4</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#"><i class="ion ion-heart"></i> Badges <div class="badge badge-primary">10</div></a>
+            </li>
+            <li>
+              <a href="credits.html"><i class="ion ion-ios-information-outline"></i> Credits</a>
+            </li>          </ul>
+          <div class="p-3 mt-4 mb-4">
+            <a href="http://stisla.multinity.com/" class="btn btn-danger btn-shadow btn-round has-icon has-icon-nofloat btn-block">
+              <i class="ion ion-help-buoy"></i> <div>Go PRO!</div>
+            </a>
+          </div>
         </aside>
       </div>
-      <!-- Page Content -->
       <div class="main-content">
         <section class="section">
           <h1 class="section-header">
-            <div>Daftar Produk</div>
+            <div>Font Awesome</div>
           </h1>
-            <div class="section-body">
-              <div class="row">
-                <div class="col-12">
-                  <div class="card">
+          <div class="section-body">
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-header">
+                    <h4>Font Awesome</h4>
+                  </div>
                   <div class="card-body">
-                  <table class="table" style="text-align: center;">
-                  <thead class="thead-dark">
-                    <tr>
-                      <th width="5%">No</th>
-                      <th width="15%">Nama Produk</th>
-                      <th width="10%">Kategori</th>
-                      <th width="10%">Fungsi</th>
-                      <th width="10%">Harga</th>
-                      <th width="50%">Keterangan</th>
-<!--                       <th>Gambar</th> -->
-                    </tr>
-                  </thead>
-                  <tbody>
-
-                    <?php
-                    $id =$data['id'];
-                      $sql = "SELECT * from barang WHERE id_user ='$id'";
-                      $result =mysqli_query($con,$sql);
-                      $i=1;
-                      while ($row = mysqli_fetch_array($result)) {
-                    ?>
-                    <tr>
-                      <td width="5%"><?= $i++;?></td>
-                      <td width="15%"><?=$row['nama'];?></td>
-                      <td width="10%"><?=$row['kategori'];?></td>
-                      <td width="10%"><?=$row['fungsi'];?></td>
-                      <td width="10%"><?=$row['harga'];?></td>
-                      <td width="50%" ><?=$row['deskripsi'];?></td>
-                   </tr>
-                   <?php
-                   }
-                   ?>
-                  </tbody>
-                </table>
+                    <div class="alert alert-primary alert-has-icon">
+                      <div class="alert-icon"><i class="ion-ios-lightbulb-outline"></i></div>
+                      <div class="alert-body">
+                        <div class="alert-title">Oh, no!</div>
+                        <p>In addition to Ionicons, we also use the Awesome Font 5 to make it easier for you to use the icon.
+                        However, the Awsome Font 5 has many icons and we can not load it on this page, but you can still go to the official page to see the available icons.</p>
+                        <p>Font Awesome Free by @fontawesome</p>
+                        <p>
+                          <a href="https://fontawesome.com/icons" target="_blank" class="btn btn-light text-dark">Let's Go</a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
-    </div>
       <footer class="main-footer">
         <div class="footer-left">
           Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://multinity.com/">Multinity</a>
@@ -204,46 +232,6 @@
   <script src="../dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
   <script src="../dist/js/sa-functions.js"></script>
   
-  <script src="../dist/modules/chart.min.js"></script>
-  <script src="../dist/modules/summernote/summernote-lite.js"></script>
-
-  <script>
-  var ctx = document.getElementById("myChart").getContext('2d');
-  var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      datasets: [{
-        label: 'Statistics',
-        data: [460, 458, 330, 502, 430, 610, 488],
-        borderWidth: 2,
-        backgroundColor: 'rgb(87,75,144)',
-        borderColor: 'rgb(87,75,144)',
-        borderWidth: 2.5,
-        pointBackgroundColor: '#ffffff',
-        pointRadius: 4
-      }]
-    },
-    options: {
-      legend: {
-        display: false
-      },
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero: true,
-            stepSize: 150
-          }
-        }],
-        xAxes: [{
-          gridLines: {
-            display: false
-          }
-        }]
-      },
-    }
-  });
-  </script>
   <script src="../dist/js/scripts.js"></script>
   <script src="../dist/js/custom.js"></script>
   <script src="../dist/js/demo.js"></script>

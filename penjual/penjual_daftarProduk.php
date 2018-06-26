@@ -83,7 +83,7 @@
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
             <i class="ion ion-android-person d-lg-none"></i>
-            <div class="d-sm-none d-lg-inline-block">Hi, HKmen</div></a>
+            <div class="d-sm-none d-lg-inline-block">Hi, <?=$data['nama_depan'];?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="profile.html" class="dropdown-item has-icon">
                 <i class="ion ion-android-person"></i> Profile
@@ -105,7 +105,7 @@
               <img alt="image" src="../dist/img/avatar/avatar-1.jpeg">
             </div>
             <div class="sidebar-user-details">
-              <div class="user-name">HKmen</div>
+              <div class="user-name"><?=$data['nama_depan'];?></div>
               <div class="user-role">
                 PENJUAL
               </div>
@@ -150,12 +150,13 @@
                   <table class="table" style="text-align: center;">
                   <thead class="thead-dark">
                     <tr>
-                      <th width="5%">No</th>
+                      <th width="4%">No</th>
                       <th width="15%">Nama Produk</th>
-                      <th width="10%">Kategori</th>
-                      <th width="10%">Fungsi</th>
-                      <th width="10%">Harga</th>
+                      <th width="5%">Kategori</th>
+                      <th width="5%">Fungsi</th>
+                      <th width="5%">Harga</th>
                       <th width="50%">Keterangan</th>
+                      <th width="16%" colspan="2">Action</th>
 <!--                       <th>Gambar</th> -->
                     </tr>
                   </thead>
@@ -175,6 +176,8 @@
                       <td width="10%"><?=$row['fungsi'];?></td>
                       <td width="10%"><?=$row['harga'];?></td>
                       <td width="50%" ><?=$row['deskripsi'];?></td>
+                      <td width="8%" ><a href=""><span class="ion ion-edit"></span></a></td>
+                      <td width="8%" ><a href=""><span class="ion ion-trash-a"></span></a></td>
                    </tr>
                    <?php
                    }

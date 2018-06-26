@@ -155,9 +155,10 @@
                       <th width="5%">Kategori</th>
                       <th width="5%">Fungsi</th>
                       <th width="5%">Harga</th>
+                      <th width="5%">Stok</th>
                       <th width="10%">Gambar</th>
-                      <th width="40%">Keterangan</th>
-                      <th width="16%" colspan="2">Action</th>
+                      <th width="46%">Keterangan</th>
+                      <th width="5%" colspan="2">Action</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -172,13 +173,14 @@
                     <tr>
                       <td width="5%"><?= $i++;?></td>
                       <td width="15%"><?=$row['nama'];?></td>
-                      <td width="10%"><?=$row['kategori'];?></td>
-                      <td width="10%"><?=$row['fungsi'];?></td>
-                      <td width="10%"><?=$row['harga'];?></td>
+                      <td width="5%"><?=$row['kategori'];?></td>
+                      <td width="5%"><?=$row['fungsi'];?></td>
+                      <td width="5%"><?=$row['harga'];?></td>
+                      <td width="5%"><?=$row['stok'];?></td>
                       <td width="10%"><img width="100%" src="../images/<?=$row['gambar']?>"></td>
-                      <td width="40%" ><?=$row['deskripsi'];?></td>
-                      <td width="8%" ><a href=""><span class="ion ion-edit"></span></a></td>
-                      <td width="8%" ><a href="process/delete_produk.php?id=<?=$row['id']?>"><span class="ion ion-trash-a"></span></a></td>
+                      <td width="46%" ><?=$row['deskripsi'];?></td>
+                      <td width="2.5%" ><a href="edit_produk.php?id=<?=$row['id']?>"><span class="ion ion-edit"></span></a></td>
+                      <td width="2.5%" ><a href="process/delete_produk.php?id=<?=$row['id']?>"><span class="ion ion-trash-a"></span></a></td>
                    </tr>
                    <?php
                    }

@@ -17,7 +17,7 @@
 			alert("Isi Data Dengan Benar");
 			document.location="../register.php"</script>';
 		} else{
-			mysqli_query($con,"INSERT INTO user (`nama_depan`, `nama_belakang`, `alamat`, `email`, `tanggal_lahir`, `password`, `id_provinsi`, `id_kota`, `level`) VALUES ('$first_name','$last_name','$alamat','$email','$lahir', '$password','$province','$city',0) ");
+			mysqli_query($con,"INSERT INTO user (`nama_depan`, `nama_belakang`, `alamat`, `email`, `tanggal_lahir`, `password`, `id_provinsi`, `id_kota`,'postal_code','gambar' ,`level`) VALUES ('$first_name','$last_name','$alamat','$email','$lahir', '$password','$province','$city','$postal_code','default.png',0) ");
 			echo '<script language = "javascript"> 
 			alert("Register Success!");
 			document.location="../index.php"</script>';

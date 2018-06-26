@@ -85,7 +85,7 @@
             <i class="ion ion-android-person d-lg-none"></i>
             <div class="d-sm-none d-lg-inline-block">Hi, <?= $data['nama_depan']?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
-              <a href="profile.html" class="dropdown-item has-icon">
+              <a href="ubahprofil.php" class="dropdown-item has-icon">
                 <i class="ion ion-android-person"></i> Profile
               </a>
               <a href="logout.php" class="dropdown-item has-icon">
@@ -180,7 +180,7 @@
                   <table class="table">
                     <tr>  
                       <td><label>Jenis Hewan</label></td>
-                      <td><input class="form-control" type="" name=""></td>
+                      <td><input class="form-control" type="text" name="jenis"></td>
                     </tr>
                     <tr>
                       <td><label>Ras Hewan</label></td>
@@ -196,7 +196,7 @@
             </div> 
           </div>
         </div>
-          <h2 class="section-header">
+          <!-- <h2 class="section-header">
             <div>Hasil Pencarian</div>
           </h2>
         <div class="row">
@@ -260,7 +260,7 @@
       </div> 
         </div>
       </section>
-    </div>
+    </div> -->
       <footer class="main-footer">
         <div class="footer-left">
           Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://multinity.com/">Multinity</a>

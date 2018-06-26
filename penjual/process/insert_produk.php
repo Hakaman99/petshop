@@ -28,7 +28,7 @@
 		}
 
 
-	}elseif (condition) {
+	}else {
 		echo '<script language = "javascript"> 
 		alert("Fail!");
 		document.location="../penjual_daftarProduk.php"</script>';

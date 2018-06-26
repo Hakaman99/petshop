@@ -88,7 +88,7 @@
               <a href="profile.html" class="dropdown-item has-icon">
                 <i class="ion ion-android-person"></i> Profile
               </a>
-              <a href="#" class="dropdown-item has-icon">
+              <a href="logout.php" class="dropdown-item has-icon">
                 <i class="ion ion-log-out"></i> Logout
               </a>
             </div>
@@ -155,9 +155,9 @@
                       <th width="5%">Kategori</th>
                       <th width="5%">Fungsi</th>
                       <th width="5%">Harga</th>
-                      <th width="50%">Keterangan</th>
+                      <th width="10%">Gambar</th>
+                      <th width="40%">Keterangan</th>
                       <th width="16%" colspan="2">Action</th>
-<!--                       <th>Gambar</th> -->
                     </tr>
                   </thead>
                   <tbody>
@@ -175,9 +175,10 @@
                       <td width="10%"><?=$row['kategori'];?></td>
                       <td width="10%"><?=$row['fungsi'];?></td>
                       <td width="10%"><?=$row['harga'];?></td>
-                      <td width="50%" ><?=$row['deskripsi'];?></td>
+                      <td width="10%"><img width="100%" src="../images/<?=$row['gambar']?>"></td>
+                      <td width="40%" ><?=$row['deskripsi'];?></td>
                       <td width="8%" ><a href=""><span class="ion ion-edit"></span></a></td>
-                      <td width="8%" ><a href=""><span class="ion ion-trash-a"></span></a></td>
+                      <td width="8%" ><a href="process/delete_produk.php?id=<?=$row['id']?>"><span class="ion ion-trash-a"></span></a></td>
                    </tr>
                    <?php
                    }

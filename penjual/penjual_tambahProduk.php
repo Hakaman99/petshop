@@ -88,7 +88,7 @@
               <a href="profile.html" class="dropdown-item has-icon">
                 <i class="ion ion-android-person"></i> Profile
               </a>
-              <a href="#" class="dropdown-item has-icon">
+              <a href="logout.php" class="dropdown-item has-icon">
                 <i class="ion ion-log-out"></i> Logout
               </a>
             </div>
@@ -150,33 +150,39 @@
                     <h4>Masukkan Detail Produk</h4>
                   </div>
                   <div class="card-body">
-                  <table class="table">
+                  <table class="table" style="font-weight: bold;">
                   <thead class="thead-dark">
                     <tr>
                       <td>Nama Produk</td>
-                      <td>Jenis Produk</td>
+                      <td>Jenis Hewan</td>
+                      <td>Fungsi</td>
                       <td>Harga</td>
-                      <td>Untuk Hewan</td>
-                      <td>Keterangan</td>
+                      <td>Stok</td>
                       <td>Gambar</td>
                     </tr>
                   </thead>
                   <tbody>
+                    <form enctype="multipart/form-data" action="process/insert_produk.php" method="POST">
                     <tr>
-                      <td><input class="form-control" type="" name=""></td>
-                      <td><input class="form-control" type="" name=""></td>
-                      <td><input class="form-control" type="" name=""></td>
-                      <td><input class="form-control" type="" name=""></td>
-                      <td><input class="form-control" type="" name=""></td>
-                      <td><div class="custom-file">
-                      <input type="file" class="custom-file-input" id="customFile">
-                      <label class="custom-file-label" for="customFile">Choose file</label>
-                      </div></td>
+                      <td><input class="form-control" type="text" name="nama"></td>
+                      <td><input class="form-control" type="text" name="kategori"></td>
+                      <td><input class="form-control" type="text" name="fungsi"></td>
+                      <td><input class="form-control" type="number" name="harga"></td>
+                      <td><input class="form-control" type="number" name="stok"></td>
+                      <td><input type="file" name="gambar" class="form-control"></td>
                    </tr>
+                   
+                   <tr>
+                     <td>Deskripsi</td>
+                   </tr>
+                   <tr>
+                      <td colspan="6"><textarea type="textarea" style="width: 100%;height: 100px" name="deskripsi"></textarea></td>
+                   </tr>
+                   
                   </tbody>
                 </table>
                 <button type="submit" class="btn btn-primary btn-block">
-                Submit</button>   
+                Submit</button>                    </form> 
               </div>
             </div> 
           </div>

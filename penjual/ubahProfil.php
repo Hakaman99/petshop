@@ -22,18 +22,19 @@
         <div class="row">
           <div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-8 offset-lg-2 col-xl-8 offset-xl-2">
             <div class="login-brand">
-              WAKWAW SHOP
+              Edit Profile
             </div>
 
             <div class="card card-primary">
-              <div class="card-header"><h4>Edit Profil</h4></div>
+              <div class="card-header"><a href="index.php"><span class="ion ion-home" style="font-size: 120%;font-weight: bold;"> Home</span></a></div>
 
               <div class="card-body">
-                <form method="POST" action="">
+                <form method="POST" enctype="multipart/form-data" action="process/update_profile.php">
                   <div class="row">
                     <div class="form-group col-6">
                       <label>Foto</label>
-                        <input type="file" class="form-control"  id="customFile">
+                        <input type="file" class="form-control" name="gambar">
+                        <input type="hidden" class="form-control" name="gbr"  value="<?=$data['gambar']?>">
                     </div>
                     <div class="form-group col-6">
                       <center><div class="card-wrap">
@@ -45,7 +46,7 @@
                   <div class="row">
                     <div class="form-group col-6">
                       <label for="frist_name">First Name</label>
-                      <input id="frist_name" type="text" class="form-control" name="frist_name" autofocus value="<?=$data['nama_depan']?>">
+                      <input id="frist_name" type="text" class="form-control" name="first_name" autofocus value="<?=$data['nama_depan']?>">
                     </div>
                     <div class="form-group col-6">
                       <label for="last_name">Last Name</label>
@@ -67,7 +68,7 @@
                     </div>
                     <div class="form-group col-6">
                       <label for="password2" class="d-block">Password Confirmation</label>
-                      <input id="password2" type="password" class="form-control" name="password-confirm">
+                      <input id="password2" type="password" class="form-control" name="passwordconfirm">
                       <span id="message"></span>
                     </div>
                   </div>
@@ -114,7 +115,7 @@
                   </div>
 
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">
+                    <button type="submit" name="submit" class="btn btn-primary btn-block">
                       Update
                     </button>
                   </div>

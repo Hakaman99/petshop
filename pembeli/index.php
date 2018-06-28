@@ -85,7 +85,7 @@
             <i class="ion ion-android-person d-lg-none"></i>
             <div class="d-sm-none d-lg-inline-block">Hi, <?=$data['nama_depan']?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
-              <a href="profile.html" class="dropdown-item has-icon">
+              <a href="ubahProfil.php" class="dropdown-item has-icon">
                 <i class="ion ion-android-person"></i> Profile
               </a>
               <a href="logout.php" class="dropdown-item has-icon">

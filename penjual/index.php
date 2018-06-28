@@ -102,7 +102,7 @@
           </div>
           <div class="sidebar-user">
             <div class="sidebar-user-picture">
-              <img alt="image" src="../dist/img/avatar/avatar-1.jpeg">
+              <img alt="image"  src="../imagesProfile/<?=$data['gambar']?>">
             </div>
             <div class="sidebar-user-details">
               <div class="user-name"><?=$data['nama_depan'];?></div>

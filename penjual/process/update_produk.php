@@ -11,8 +11,9 @@
 	$gbr = $_POST['gbr'];
 	$lokasi = $_FILES['gambar']['tmp_name'];
 	$nama_gambar = $_FILES['gambar']['name'];
-	$direktori = "../../images/$nama_gambar";
+	$direktori = "../../images/".$nama_gambar;
 	$lokasi_gbr = "../../images/".$gbr;
+
 	if (!empty($lokasi)) {
 		
 		if (file_exists($lokasi_gbr)) {
@@ -25,8 +26,9 @@
 		if ($q) {
 			move_uploaded_file($lokasi, $direktori);
 			echo '<script language = "javascript"> 
-			alert("Success!");
+			alert("Success! ");
 			document.location="../penjual_daftarProduk.php"</script>';
+			
 		}else{
 			echo '<script language = "javascript"> 
 			alert("Fail!");
@@ -39,9 +41,8 @@
 		$q = mysqli_query($con,$sql);
 
 		if ($q) {
-			move_uploaded_file($lokasi, $direktori);
 			echo '<script language = "javascript"> 
-			alert("Success!");
+			alert("Success! ");
 			document.location="../penjual_daftarProduk.php"</script>';
 		}else{
 			echo '<script language = "javascript"> 
@@ -50,8 +51,5 @@
 		}
 	}
 
-
-
-?>
 
 ?>

@@ -85,7 +85,7 @@
             <i class="ion ion-android-person d-lg-none"></i>
             <div class="d-sm-none d-lg-inline-block">Hi, <?=$data['nama_depan'];?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
-              <a href="profile.html" class="dropdown-item has-icon">
+              <a href="ubahProfil.php" class="dropdown-item has-icon">
                 <i class="ion ion-android-person"></i> Profile
               </a>
               <a href="logout.php" class="dropdown-item has-icon">
@@ -102,7 +102,7 @@
           </div>
           <div class="sidebar-user">
             <div class="sidebar-user-picture">
-              <img alt="image" src="../dist/img/avatar/avatar-1.jpeg">
+              <img alt="image"  src="../imagesProfile/<?=$data['gambar']?>">
             </div>
             <div class="sidebar-user-details">
               <div class="user-name"><?=$data['nama_depan'];?></div>

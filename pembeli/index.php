@@ -102,7 +102,7 @@
           </div>
           <div class="sidebar-user">
             <div class="sidebar-user-picture">
-              <img alt="image" src="../dist/img/avatar/avatar-1.jpeg">
+              <img alt="image" src="../imagesProfile/<?=$data['gambar']?>">
             </div>
             <div class="sidebar-user-details">
               <div class="user-name"><?=$data['nama_depan']?></div>
@@ -113,7 +113,7 @@
           </div>
           <ul class="sidebar-menu">
             <li class="active">
-              <a href="pembeli_index.php"><i class="ion ion-speedometer"></i><span>Home</span></a>
+              <a href="index.php"><i class="ion ion-speedometer"></i><span>Home</span></a>
             </li>
             <li >
               <a href="toko.php"><i class="ion ion-briefcase"></i><span>Buka Toko</span></a>
@@ -162,6 +162,8 @@
                         <p><h6>Kategori  : <?=$row['kategori'];?></h6></p>
                         <p><h6>Harga     : Rp. <?=number_format($row['harga'],0,"",".");?></h6></p>
                       </div>
+                      <button type="submit" class="btn btn-primary btn-block">
+                See More Detail</button> 
                     </div>
                   </div></center>
                 </div>

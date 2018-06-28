@@ -3,6 +3,7 @@
 <head>
   <?php include ("config/connect.php"); ?>
   <?php include ("data.php"); ?>
+  <?php include ("akses.php"); ?>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
   <title>Examples &rsaquo; Register &mdash; Stisla</title>

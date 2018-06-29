@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <?php include('config/connect.php');
-        include('akses.php');
-        include('data.php');
-       
-        $id= $_GET['id'];
-        $sql = "SELECT * FROM barang WHERE id='$id'";
-        $r = mysqli_query($con,$sql);
-        $fet = mysqli_fetch_array($r);
+  include('akses.php');
+  include('data.php');
+
+  $id= $_GET['id'];
+  $sql = "SELECT * FROM barang WHERE id='$id'";
+  $r = mysqli_query($con,$sql);
+  $fet = mysqli_fetch_array($r);
   ?>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
@@ -88,7 +88,7 @@
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
             <i class="ion ion-android-person d-lg-none"></i>
-            <div class="d-sm-none d-lg-inline-block">Hi, <?=$data['nama_depan']?></div></a>
+            <div class="d-sm-none d-lg-inline-block">Hi, <?=$data['nama_depan']?> <?=$data['nama_belakang']?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="ubahProfil.php" class="dropdown-item has-icon">
                 <i class="ion ion-android-person"></i> Profile
@@ -110,13 +110,13 @@
               <img alt="image" src="../imagesProfile/<?=$data['gambar']?>">
             </div>
             <div class="sidebar-user-details">
-              <div class="user-name"><?=$data['nama_depan']?></div>
+              <div class="user-name"><?=$data['nama_depan']?> <?=$data['nama_belakang']?></div>
               <div class="user-role">
                 PEMBELI
               </div>
             </div>
           </div>
-         <ul class="sidebar-menu">
+          <ul class="sidebar-menu">
             <li class="active">
               <a href="index.php"><i class="ion ion-speedometer"></i><span>Home</span></a>
             </li>
@@ -140,7 +140,7 @@
             <li>
               <a href="simple.html"><i class="ion ion-ios-location-outline"></i><span>Google Maps</span></a>
             </li>
-           </ul>
+          </ul>
         </aside>
       </div>
       <!-- Page Content -->
@@ -149,63 +149,71 @@
           <h1 class="section-header">
             <div>Detail Produk</div>
           </h1>
-            <center><div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <img src="../images/<?=$fet['gambar']?>" class="img-responsive" width="202" height="173" alt="Image"><br>
-                  <div class="card-header">
-                    <h4><?=$fet['fungsi']." ".$fet['kategori'];?></h4>
-                  </div>
+          <center><div class="col-lg-3 col-md-6 col-12">
+            <center><div class="card card-sm-3">
+              <div class="card-wrap">
+                <img src="../images/<?=$fet['gambar']?>" class="img-responsive" width="202" height="173" alt="Image"><br>
+                <div class="card-header">
+                  <h4><?=$fet['fungsi']." ".$fet['kategori'];?></h4>
                 </div>
-              </div></center>
+              </div>
             </div></center>
-            <div class="section-body">
-                <div class="col-12">
-                  <div class="card">
-                  <div class="card-body">
-                      <label class="form-control"><b>Nama Produk : </b> <?=$fet['nama']?> </label>
-                      <label class="form-control"><b>Jenis Produk :</b> <?=$fet['fungsi']?> </label>
-                      <label class="form-control"><b>Stok :</b> <?=$fet['stok']?> </label>
-                      <label class="form-control"><b>Harga :</b> <?=$fet['harga']?></label>
-                      <label class="form-control"><b>Untuk Hewan :</b> <?=$fet['kategori']?> </label>
-                  </div>
-            </div>
-          </div>
-          <div class="col-12">
-                  <div class="card">
-                  <div class="card-body">
-                      <label><b>Keterangan : </b> </label>
-                      <label><?=$fet['deskripsi']?>  </label>
+          </div></center>
+          <div class="section-body">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body">
+                  <label class="form-control"><b>Nama Produk : </b> <?=$fet['nama']?> </label>
+                  <label class="form-control"><b>Jenis Produk :</b> <?=$fet['fungsi']?> </label>
+                  <label class="form-control"><b>Stok :</b> <?=$fet['stok']?> </label>
+                  <label class="form-control"><b>Harga :</b> <?=$fet['harga']?></label>
+                  <label class="form-control"><b>Untuk Hewan :</b> <?=$fet['kategori']?> </label>
+                </div>
               </div>
             </div>
-            <a href="pembeli_daftarPembelian.php?id= <?php echo $fet['id']; ?> &action=add" class="btn btn-danger btn-block">
-                      Masukkan ke Keranjang</a>
-          </div> 
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body">
+                  <label><b>Keterangan : </b> </label>
+                  <label><?=$fet['deskripsi']?>  </label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-6" style="width: 100%">
+                  <a href="pembeli_keranjangBelanja.php?id=<?=$fet['id'];?>" class="btn btn-danger btn-block"><span class="ion ion-heart"> Wishlist</span></a>
+                </div>
+                <div class="form-group col-6">
+                  <a href="pembeli_daftarPembelian.php?id=<?php echo $fet['id']; ?> &action=add" class="btn btn-danger btn-block"><span class="ion ion-bag"></span> Masukkan ke Keranjang</a>
+                </div>
+              </div>
+
+              
+            </div> 
+          </div>
         </div>
-      </div>
-        </section>
-      </div>
-      <footer class="main-footer">
-        <div class="footer-left">
-          Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://multinity.com/">Multinity</a>
-        </div>
-        <div class="footer-right"></div>
-      </footer>
+      </section>
     </div>
+    <footer class="main-footer">
+      <div class="footer-left">
+        Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://multinity.com/">Multinity</a>
+      </div>
+      <div class="footer-right"></div>
+    </footer>
   </div>
+</div>
 
-  <script src="../dist/modules/jquery.min.js"></script>
-  <script src="../dist/modules/popper.js"></script>
-  <script src="../dist/modules/tooltip.js"></script>
-  <script src="../dist/modules/bootstrap/js/bootstrap.min.js"></script>
-  <script src="../dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
-  <script src="../dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
-  <script src="../dist/js/sa-functions.js"></script>
-  
-  <script src="../dist/modules/chart.min.js"></script>
-  <script src="../dist/modules/summernote/summernote-lite.js"></script>
+<script src="../dist/modules/jquery.min.js"></script>
+<script src="../dist/modules/popper.js"></script>
+<script src="../dist/modules/tooltip.js"></script>
+<script src="../dist/modules/bootstrap/js/bootstrap.min.js"></script>
+<script src="../dist/modules/nicescroll/jquery.nicescroll.min.js"></script>
+<script src="../dist/modules/scroll-up-bar/dist/scroll-up-bar.min.js"></script>
+<script src="../dist/js/sa-functions.js"></script>
 
-  <script>
+<script src="../dist/modules/chart.min.js"></script>
+<script src="../dist/modules/summernote/summernote-lite.js"></script>
+
+<script>
   var ctx = document.getElementById("myChart").getContext('2d');
   var myChart = new Chart(ctx, {
     type: 'line',
@@ -241,9 +249,9 @@
       },
     }
   });
-  </script>
-  <script src="../dist/js/scripts.js"></script>
-  <script src="../dist/js/custom.js"></script>
-  <script src="../dist/js/demo.js"></script>
+</script>
+<script src="../dist/js/scripts.js"></script>
+<script src="../dist/js/custom.js"></script>
+<script src="../dist/js/demo.js"></script>
 </body>
 </html>

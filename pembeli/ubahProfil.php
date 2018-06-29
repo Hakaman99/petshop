@@ -47,7 +47,7 @@
                   <div class="row">
                     <div class="form-group col-6">
                       <label for="frist_name">First Name</label>
-                      <input id="frist_name" type="text" class="form-control" name="first_name" autofocus value="<?=$data['nama_depan']?>">
+                      <input id="frist_name" type="text" class="form-control" name="first_name" autofocus value="<?=$data['nama_depan']?> <?=$data['nama_belakang']?>">
                     </div>
                     <div class="form-group col-6">
                       <label for="last_name">Last Name</label>

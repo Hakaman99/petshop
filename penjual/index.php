@@ -83,7 +83,7 @@
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
             <i class="ion ion-android-person d-lg-none"></i>
-            <div class="d-sm-none d-lg-inline-block">Hi, <?= $data['nama_depan']?></div></a>
+            <div class="d-sm-none d-lg-inline-block">Hi, <?=$data['nama_depan']?> <?=$data['nama_belakang']?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="ubahprofil.php" class="dropdown-item has-icon">
                 <i class="ion ion-android-person"></i> Profile
@@ -105,7 +105,7 @@
               <img alt="image"  src="../imagesProfile/<?=$data['gambar']?>">
             </div>
             <div class="sidebar-user-details">
-              <div class="user-name"><?=$data['nama_depan'];?></div>
+              <div class="user-name"><?=$data['nama_depan']?> <?=$data['nama_belakang']?></div>
               <div class="user-role">
                 PENJUAL
               </div>
@@ -198,14 +198,16 @@
             </div> 
           </div>
         </div>
-          <h2 class="section-header">
-            <div>Hasil Pencarian</div>
-          </h2>
-        <div class="row">
           <?php
               if (isset($_GET['search'])) {
+              ?>
+              <h2 class="section-header">
+                <div>Hasil Pencarian</div>
+              </h2>
+            <div class="row">
+              <?php
               $cari = $_GET['search'];
-              $sql = "SELECT * FROM barang WHERE nama like '%".$cari."%' or harga like '%".$cari."%'";
+              $sql = "SELECT * FROM barang WHERE nama like '%".$cari."%' or harga like '%".$cari."%' or kategori like '%".$cari."%'";
               $q= mysqli_query($con,$sql);
               while ($car = mysqli_fetch_array($q)) {
                 

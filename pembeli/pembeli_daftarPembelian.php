@@ -85,7 +85,7 @@
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
             <i class="ion ion-android-person d-lg-none"></i>
-            <div class="d-sm-none d-lg-inline-block">Hi, <?=$data['nama_depan']?></div></a>
+            <div class="d-sm-none d-lg-inline-block">Hi, <?=$data['nama_depan']?> <?=$data['nama_belakang']?> <?=$data['nama_belakang']?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="ubahProfil.php" class="dropdown-item has-icon">
                 <i class="ion ion-android-person"></i> Profile
@@ -107,7 +107,7 @@
               <img alt="image" src="../imagesProfile/<?=$data['gambar']?>">
             </div>
             <div class="sidebar-user-details">
-              <div class="user-name"><?=$data['nama_depan']?></div>
+              <div class="user-name"><?=$data['nama_depan']?> <?=$data['nama_belakang']?> <?=$data['nama_belakang']?></div>
               <div class="user-role">
                 PEMBELI
               </div>
@@ -221,7 +221,7 @@
         <center><label class="form-control"><b>Tata Cara Melakukan Pembayaran</b></label></center>
           <h5 class="form-control"><p>Silahkan melakukan transfer ke rekening berikut : </p>
           <p>Bank        : Mandiri</p>
-          <p>A/N         : Babang <?=$data['nama_depan']?></p>
+          <p>A/N         : Babang <?=$data['nama_depan']?> <?=$data['nama_belakang']?> <?=$data['nama_belakang']?></p>
           <p>No Rekening : 999999999999</p>
           <p>#Harap Melakukan Transfer sesuai dengan nilai/harga total pembayaran, jika pembayaran telah selesai silahkan untuk upload bukti pembayaran dan melakukan konfirmasi pembayaran</p></h5>
         </div>

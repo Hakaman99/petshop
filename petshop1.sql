@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2018 at 10:37 AM
+-- Generation Time: Jun 29, 2018 at 04:02 PM
 -- Server version: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
@@ -272,6 +272,25 @@ INSERT INTO `user` (`id`, `nama_depan`, `nama_belakang`, `alamat`, `email`, `pos
 (2, 'Rizky', 'Ari Pratama', 'Jalan Kaliurang', 'rizkyari@gmail.com', 78121, '1997-11-22', '5d41402abc4b2a76b9719d911017c592', 'default.png', 14, 14, 0),
 (3, 'Nugroho', 'Agung', 'Jalan Godean', 'Nugroho@gmail.com', 78121, '1997-11-22', '5d41402abc4b2a76b9719d911017c592', 'default.png', 14, 14, 0);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `wishlist`
+--
+
+CREATE TABLE `wishlist` (
+  `id` int(255) NOT NULL,
+  `id_barang` int(255) NOT NULL,
+  `id_pembeli` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `wishlist`
+--
+
+INSERT INTO `wishlist` (`id`, `id_barang`, `id_pembeli`) VALUES
+(30, 8, 2);
+
 --
 -- Indexes for dumped tables
 --
@@ -329,6 +348,14 @@ ALTER TABLE `user`
   ADD KEY `id_kota` (`id_kota`);
 
 --
+-- Indexes for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_barang` (`id_barang`),
+  ADD KEY `id_user` (`id_pembeli`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -368,6 +395,11 @@ ALTER TABLE `toko`
 ALTER TABLE `user`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
+-- AUTO_INCREMENT for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+--
 -- Constraints for dumped tables
 --
 
@@ -405,6 +437,13 @@ ALTER TABLE `toko`
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_kota`) REFERENCES `kota` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`id_provinsi`) REFERENCES `provinsi` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `wishlist`
+--
+ALTER TABLE `wishlist`
+  ADD CONSTRAINT `wishlist_ibfk_1` FOREIGN KEY (`id_pembeli`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `wishlist_ibfk_2` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

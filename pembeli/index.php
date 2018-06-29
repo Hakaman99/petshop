@@ -24,13 +24,13 @@
     <div class="main-wrapper">
       <div class="navbar-bg"></div>
       <nav class="navbar navbar-expand-lg main-navbar">
-        <form class="form-inline mr-auto">
+        <form class="form-inline mr-auto" method="GET" action="index.php">
           <ul class="navbar-nav mr-3">
             <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg test"><i class="ion ion-navicon-round"></i></a></li>
             <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="ion ion-search"></i></a></li>
           </ul>
           <div class="search-element">
-            <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+            <input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search">
             <button class="btn" type="submit"><i class="ion ion-search"></i></button>
           </div>
         </form>
@@ -83,7 +83,7 @@
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
             <i class="ion ion-android-person d-lg-none"></i>
-            <div class="d-sm-none d-lg-inline-block">Hi, <?=$data['nama_depan']?></div></a>
+            <div class="d-sm-none d-lg-inline-block">Hi, <?=$data['nama_depan']?> <?=$data['nama_belakang']?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="ubahProfil.php" class="dropdown-item has-icon">
                 <i class="ion ion-android-person"></i> Profile
@@ -105,7 +105,7 @@
               <img alt="image" src="../imagesProfile/<?=$data['gambar']?>">
             </div>
             <div class="sidebar-user-details">
-              <div class="user-name"><?=$data['nama_depan']?></div>
+              <div class="user-name"><?=$data['nama_depan']?> <?=$data['nama_belakang']?></div>
               <div class="user-role">
                 PEMBELI
               </div>
@@ -195,66 +195,40 @@
             </div> 
           </div>
         </div>
-          <h2 class="section-header">
-            <div>Hasil Pencarian</div>
-          </h2>
-        <div class="row">
-            <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <div class="card-header">
-                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
-                  </div>
-                  <div class="card-body">
-                    <p><h6>Nama  : WhisWhis</h6></p>
-                    <p><h6>Jenis : Persia</h6></p>
-                    <p><h6>Harga : $25</h6></p>
-                  </div>
+          <?php
+              if (isset($_GET['search'])) {
+              ?>
+              <h2 class="section-header">
+                <div>Hasil Pencarian</div>
+              </h2>
+            <div class="row">
+              <?php
+              $cari = $_GET['search'];
+              $sql = "SELECT * FROM barang WHERE nama like '%".$cari."%' or harga like '%".$cari."%' or kategori like '%".$cari."%'";
+              $q= mysqli_query($con,$sql);
+              while ($car = mysqli_fetch_array($q)) {
+                
+          ?>
+          <div class="col-lg-3 col-md-6 col-12">
+             <center><div class="card card-sm-3">
+              <div class="card-wrap">
+                <div class="card-header">
+                  <div class="panel-body" ><img src="../images/<?=$car['gambar'];?>" class="img-responsive" width="202" height="173" alt="Image"></div>
                 </div>
-              </div></center>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <div class="card-header">
-                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
-                  </div>
-                  <div class="card-body">
-                    <p><h6>Nama  : WhisWhis</h6></p>
-                    <p><h6>Jenis : Persia</h6></p>
-                    <p><h6>Harga : $25</h6></p>
-                  </div>
+                <div class="card-body">
+                  <p><h6>Nama      : <?=$car['nama'];?></h6></p>
+                  <p><h6>Kategori  : <?=$car['kategori'];?></h6></p>
+                  <p><h6>Harga     : Rp. <?=number_format($car['harga'],0,"",".");?></h6></p>
                 </div>
-              </div></center>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <div class="card-header">
-                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
-                  </div>
-                  <div class="card-body">
-                    <p><h6>Nama  : WhisWhis</h6></p>
-                    <p><h6>Jenis : Persia</h6></p>
-                    <p><h6>Harga : $25</h6></p>
-                  </div>
-                </div>
-              </div></center>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <div class="card-header">
-                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
-                  </div>
-                  <div class="card-body">
-                    <p><h6>Nama  : WhisWhis</h6></p>
-                    <p><h6>Jenis : Persia</h6></p>
-                    <p><h6>Harga : $25</h6></p>
-                  </div>
-                </div>
-              </div></center>
-            </div>
+               <a href="penjual_detailProduk.php?id=<?=$car['id']?>" class="btn btn-primary btn-block">See More Detail</a>
+              </div>
+          </div></center>
+        </div>
+            <?php
+
+              }
+          }
+            ?>
           </div>
       </div> 
         </div>

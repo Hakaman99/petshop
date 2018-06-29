@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <?php include('config/connect.php');?>
+  <?php include('data.php');?>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
   <title>Buka Toko</title>
@@ -80,7 +81,7 @@
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
             <i class="ion ion-android-person d-lg-none"></i>
-            <div class="d-sm-none d-lg-inline-block">Hi, HKmen</div></a>
+            <div class="d-sm-none d-lg-inline-block">Hi, <?=$data['nama_depan']?> <?=$data['nama_belakang']?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
               <a href="profile.html" class="dropdown-item has-icon">
                 <i class="ion ion-android-person"></i> Profile
@@ -99,10 +100,10 @@
           </div>
           <div class="sidebar-user">
             <div class="sidebar-user-picture">
-              <img alt="image" src="../dist/img/avatar/avatar-1.jpeg">
+              <img alt="image" src="../imagesProfile/<?=$data['gambar']?>">
             </div>
             <div class="sidebar-user-details">
-              <div class="user-name">HKmen</div>
+              <div class="user-name"><?=$data['nama_depan']?> <?=$data['nama_belakang']?></div>
               <div class="user-role">
                 PEMBELI
               </div>

@@ -4,7 +4,12 @@
   <?php include('config/connect.php');
         include('akses.php');
         include('data.php');
-  ?>
+        if (isset($_GET['id_delete'])) {
+          $delete = $_GET['id_delete'];
+          mysqli_query($con,"DELETE FROM wishlist WHERE id='$delete'");
+          echo '<script language = "javascript"> document.location="pembeli_keranjangBelanja.php"</script>';
+        }
+        ?>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
   <title>Dashboard &mdash; Stisla</title>
@@ -83,12 +88,12 @@
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg">
             <i class="ion ion-android-person d-lg-none"></i>
-            <div class="d-sm-none d-lg-inline-block">Hi, <?=$data['nama_depan']?></div></a>
+            <div class="d-sm-none d-lg-inline-block">Hi, <?=$data['nama_depan']?> <?=$data['nama_belakang']?> <?=$data['nama_belakang']?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
-              <a href="ubahProfil.php" class="dropdown-item has-icon">
+              <a href="profile.html" class="dropdown-item has-icon">
                 <i class="ion ion-android-person"></i> Profile
               </a>
-              <a href="logout.php" class="dropdown-item has-icon">
+              <a href="#" class="dropdown-item has-icon">
                 <i class="ion ion-log-out"></i> Logout
               </a>
             </div>
@@ -105,7 +110,7 @@
               <img alt="image" src="../imagesProfile/<?=$data['gambar']?>">
             </div>
             <div class="sidebar-user-details">
-              <div class="user-name"><?=$data['nama_depan']?></div>
+              <div class="user-name"><?=$data['nama_depan']?> <?=$data['nama_belakang']?> <?=$data['nama_belakang']?></div>
               <div class="user-role">
                 PEMBELI
               </div>
@@ -133,7 +138,7 @@
               </ul>
             </li>
             <li>
-              <a href="simple.html"><i class="ion ion-ios-location-outline"></i><span>Google Maps</span></a>
+              <a href="#"><i class="ion ion-ios-location-outline"></i><span>Google Maps</span></a>
             </li>
            </ul>
         </aside>
@@ -141,12 +146,53 @@
       <!-- Page Content -->
       <div class="main-content">
         <section class="section">
-          <h2 class="section-header">
+          <h1 class="section-header">
             <div>Keranjang Belanja</div>
-          </h2>
-            
-      </section>
-    </div>
+          </h1>
+          <div class="row">
+            <?php
+            error_reporting(0);
+              $id_brg= $_GET['id'];
+              $id_saya = $data['id'];
+              $sql= "INSERT INTO wishlist (`id_barang`, `id_pembeli`) VALUES ('$id_brg','$id_saya')";
+              mysqli_query($con,$sql);
+              if (!empty($id_brg)) {
+                echo '<script language = "javascript"> document.location="pembeli_keranjangBelanja.php"</script>';
+              }
+              
+              $sql="SELECT a.id as id_barang,a.nama,a.kategori,a.fungsi,a.harga,a.stok,a.gambar,b.id FROM barang a JOIN wishlist b ON (a.id=b.id_barang)";
+              $q=mysqli_query($con,$sql);
+              while ($wish= mysqli_fetch_array($q)) {
+              
+            ?>
+            <div class="col-lg-3 col-md-6 col-12">
+              <center><div class="card card-sm-3">
+                <div class="card-wrap">
+                  <img src="../images/<?=$wish['gambar']?>" class="img-responsive" width="202" height="173" alt="Image"><br>
+                  <div class="card-header">
+                    <h4><?=$wish['fungsi']?> <?=$wish['kategori']?></h4>
+                  </div>
+                  <div class="card-body">
+
+                    <p><h5>Jenis : <?=$wish['fungsi']?></h5></p>
+                    <p><h5>Harga : <?=$wish['harga']?></h5></p>
+                    <div class="row">
+                      <div class="form-group col-6">
+                        <a href="pembeli_keranjangBelanja.php?id_delete=<?=$wish['id'];?>" class="btn btn-danger btn-block"><span class="ion ion-trash-b"></span></a>
+                      </div>
+                      <div class="form-group col-6">
+                        <a href="pembeli_daftarPembelian.php?id=<?php echo $wish['id_barang']; ?> &action=add" class="btn btn-danger btn-block"><span class="ion ion-bag"></span></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div></center>
+            </div>
+            <?php }?>
+          </div> 
+        </section>
+      </div>
+
       <footer class="main-footer">
         <div class="footer-left">
           Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://multinity.com/">Multinity</a>

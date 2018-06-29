@@ -68,6 +68,8 @@
                         <p><h6>Kategori  : <?=$row['kategori'];?></h6></p>
                         <p><h6>Harga     : Rp. <?=number_format($row['harga'],0,"",".");?></h6></p>
                       </div>
+                      <a href="detailProduk.php?id=<?=$row['id']?>" class="btn btn-primary btn-block">
+                See More Detail</a>
                     </div>
                   </div></center>
                 </div>

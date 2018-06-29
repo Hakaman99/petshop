@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2018 at 05:48 AM
+-- Generation Time: Jun 29, 2018 at 10:37 AM
 -- Server version: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
@@ -45,37 +45,13 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id`, `nama`, `kategori`, `fungsi`, `harga`, `deskripsi`, `stok`, `gambar`, `id_user`) VALUES
-(2, 'Whiskas', 'Kucing', 'Makanan', 50000, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 70, 'whiskas.jpg', 1),
+(2, 'Whiskas', 'Kucing', 'Makanan', 50000, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 62, 'whiskas.jpg', 1),
 (3, 'Alpo', 'Anjing', 'Makanan', 150000, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 111, 'alpo.jpg', 1),
 (4, 'African', 'Burung', 'Makanan', 140000, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 100, 'african.jpg', 1),
 (5, 'Vitakraft', 'Hamster', 'Makanan', 131000, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 100, 'Jual Vitakraft.jpg', 1),
 (6, 'Royal Canin', 'Anjing', 'Makanan', 200000, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 100, 'royal_anjing.jpg', 1),
 (7, 'Whiskas Kaleng', 'Kucing', 'Makanan', 50000, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 100, 'whiskas_kaleng.jpg', 1),
 (8, 'Vitakraft', 'Kelinci', 'Makanan', 100000, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 100, 'kelinci.png', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `barang_keluar`
---
-
-CREATE TABLE `barang_keluar` (
-  `id` int(255) NOT NULL,
-  `id_barang` int(255) NOT NULL,
-  `tgl` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `barang_masuk`
---
-
-CREATE TABLE `barang_masuk` (
-  `id` int(255) NOT NULL,
-  `id_barang` int(255) NOT NULL,
-  `tgl` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -149,8 +125,22 @@ CREATE TABLE `orderdetail` (
 --
 
 INSERT INTO `orderdetail` (`id`, `id_barang`, `order_id`, `harga`, `stok`, `idpenjual`) VALUES
-(1, 7, 1, '50000', 2, 1),
-(2, 2, 1, '50000', 1, 1);
+(1, 4, 4, '140000', 1, 1),
+(2, 6, 5, '200000', 1, 1),
+(3, 2, 6, '50000', 1, 1),
+(4, 2, 7, '50000', 3, 1),
+(5, 2, 8, '50000', 4, 1);
+
+--
+-- Triggers `orderdetail`
+--
+DELIMITER $$
+CREATE TRIGGER `kurangiStok` AFTER INSERT ON `orderdetail` FOR EACH ROW BEGIN
+UPDATE barang SET stok =stok-new.stok
+WHERE id = new.id_barang;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -171,7 +161,11 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `nama`, `tanggal_pembelian`, `status`, `id_pembeli`) VALUES
-(1, 'Rizky', '2018-06-29', 'MENUNGGU VERIFIKASI', 2);
+(4, 'ORDER-1379', '2018-06-29', 'KONFIRMASI PENERIMAAN PEMBAYARAN', 2),
+(5, 'ORDER-1678', '2018-06-29', 'PROSES PACKING', 3),
+(6, 'ORDER - 2064232210', '2018-06-29', 'PESANAN TELAH DIANTAR', 2),
+(7, 'ORDER - 456869775', '2018-06-29', 'MENUNGGU VERIFIKASI', 2),
+(8, 'ORDER - 1855768541', '2018-06-29', 'MENUNGGU VERIFIKASI', 2);
 
 -- --------------------------------------------------------
 
@@ -289,20 +283,6 @@ ALTER TABLE `barang`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `barang_keluar`
---
-ALTER TABLE `barang_keluar`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_barang` (`id_barang`);
-
---
--- Indexes for table `barang_masuk`
---
-ALTER TABLE `barang_masuk`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `id_barang` (`id_barang`);
-
---
 -- Indexes for table `kota`
 --
 ALTER TABLE `kota`
@@ -335,7 +315,10 @@ ALTER TABLE `provinsi`
 -- Indexes for table `toko`
 --
 ALTER TABLE `toko`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`id_user`),
+  ADD KEY `id_kota` (`id_kota`),
+  ADD KEY `id_provinsi` (`id_provinsi`);
 
 --
 -- Indexes for table `user`
@@ -355,11 +338,6 @@ ALTER TABLE `user`
 ALTER TABLE `barang`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
--- AUTO_INCREMENT for table `barang_masuk`
---
-ALTER TABLE `barang_masuk`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `kota`
 --
 ALTER TABLE `kota`
@@ -368,12 +346,12 @@ ALTER TABLE `kota`
 -- AUTO_INCREMENT for table `orderdetail`
 --
 ALTER TABLE `orderdetail`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `provinsi`
 --
@@ -394,18 +372,6 @@ ALTER TABLE `user`
 --
 
 --
--- Constraints for table `barang_keluar`
---
-ALTER TABLE `barang_keluar`
-  ADD CONSTRAINT `barang_keluar_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id`);
-
---
--- Constraints for table `barang_masuk`
---
-ALTER TABLE `barang_masuk`
-  ADD CONSTRAINT `barang_masuk_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id`);
-
---
 -- Constraints for table `kota`
 --
 ALTER TABLE `kota`
@@ -416,7 +382,22 @@ ALTER TABLE `kota`
 --
 ALTER TABLE `orderdetail`
   ADD CONSTRAINT `orderdetail_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `orderdetail_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
+  ADD CONSTRAINT `orderdetail_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
+  ADD CONSTRAINT `orderdetail_ibfk_3` FOREIGN KEY (`idpenjual`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`id_pembeli`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `toko`
+--
+ALTER TABLE `toko`
+  ADD CONSTRAINT `toko_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `toko_ibfk_2` FOREIGN KEY (`id_provinsi`) REFERENCES `provinsi` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `toko_ibfk_3` FOREIGN KEY (`id_kota`) REFERENCES `kota` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user`

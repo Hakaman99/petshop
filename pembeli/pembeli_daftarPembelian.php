@@ -154,11 +154,15 @@
                   <form method="POST">
                   <table class="table">
                   <thead class="thead-dark">
-                    <tr>
+                    <tr style="text-align: center;">
+                      <td>No</td>
                       <td>Nama Barang</td>
-                      <td>Jenis</td>
+                      <td>Jenis Hewan</td>
+                      <td>Jenis Produk</td>
                       <td>Harga</td>
+                      <td>Quantity</td>
                       <td>Total Pembayaran</td>
+                      <td>Action</td>
                     </tr>
                   </thead>
                   <tbody>

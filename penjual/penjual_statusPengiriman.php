@@ -147,10 +147,11 @@
                 <div class="col-12">
                   <div class="card">
                   <div class="card-body">
+                    <form method="POST" action="process/updateStatus.php">
                   <table class="table">
                   <thead class="thead-dark">
                     <tr>
-                      <td>Nama Barang</td>
+                      <td>Nama Order</td>
                       <td>Nama Pembeli</td>
                       <td>Alamat</td>
                       <td>Status Pengiriman</td>
@@ -159,8 +160,9 @@
                   <tbody>
                     <?php
                       $id =$data['id'];
-                      $sql ="SELECT b.nama,b.fungsi,b.kategori,b.harga,a.stok,e.nama_depan,e.nama_belakang,d.alamat,c.status FROM orderdetail a JOIN barang b ON (a.id_barang = b.id) JOIN orders c ON (a.order_id = c.id) JOIN user d ON ('$id' =d.id) JOIN user e ON (c.id_pembeli=e.id)";
+                      $sql ="SELECT DISTINCT b.nama,b.status,c.nama_depan,c.nama_belakang,c.alamat  FROM orderdetail a JOIN orders b ON (a.order_id = b.id) JOIN user c ON (b.id_pembeli = c.id) JOIN user d ON (a.idpenjual = d.id)";
                       $q=mysqli_query($con,$sql);
+                      $i=0;
                       while ( $row = mysqli_fetch_array($q)) {
                     ?>
                     <tr>
@@ -169,11 +171,12 @@
                       <td><?=$row['alamat']?></td>
                       <td>
                         <div class="form-group">
-                        <select class="form-control" id="exampleFormControlSelect1">
-                          <option>Konfirmasi Penerimaan Pembayaran</option>
-                          <option>Proses Packing</option>
-                          <option>Proses Pengantaran Oleh Kurir</option>
-                          <option>Pesanan Telah Diantar</option>
+                        <select class="form-control" id="exampleFormControlSelect1" name="status<?=$i++?>">
+                          <option <?php if($row['status'] == "MENUNGGU VERIFIKASI"){ echo 'selected';}?> value="MENUNGGU VERIFIKASI">MENUNGGU VERIFIKASI</option>
+                          <option <?php if($row['status'] == "KONFIRMASI PENERIMAAN PEMBAYARAN"){ echo 'selected';}?> value="KONFIRMASI PENERIMAAN PEMBAYARAN">KONFIRMASI PENERIMAAN PEMBAYARAN</option>
+                          <option <?php if($row['status'] == "PROSES PACKING"){ echo 'selected';}?> value="PROSES PACKING">PROSES PACKING</option>
+                          <option <?php if($row['status'] == "PROSES PENGANTARAN OLEH KURIR"){ echo 'selected';}?> value="PROSES PENGANTARAN OLEH KURIR">PROSES PENGANTARAN OLEH KURIR</option>
+                          <option <?php if($row['status'] == "PESANAN TELAH DIANTAR"){ echo 'selected';}?> value="PESANAN TELAH DIANTAR">PESANAN TELAH DIANTAR</option>
                         </select>
                       </div>
                       </td>
@@ -183,7 +186,7 @@
           <br>
           <button type="submit" class="btn btn-primary btn-block">
                 Update</button>
-
+                </form>
               </div>
             </div>
           </div>

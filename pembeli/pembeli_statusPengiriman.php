@@ -161,7 +161,8 @@
                   </thead>
                   <tbody>
                     <?php
-                      $sql = "SELECT b.nama,c.status FROM orderdetail a JOIN barang b ON (a.id_barang = b.id) JOIN orders c ON (a.order_id = c.id)";
+                      $id=$data['id'];
+                      $sql = "SELECT d.nama,a.status,c.nama_depan,c.nama_belakang,c.alamat FROM orders a JOIN orderdetail b  ON (a.id=b.order_id) JOIN user c ON (c.id=a.id_pembeli) JOIN barang d ON(d.id=b.id_barang) WHERE a.id_pembeli = '$id'";
                       $nomor=1;
                       $q = mysqli_query($con,$sql);
                       while ($r = mysqli_fetch_array($q)) {
@@ -169,8 +170,8 @@
                     <tr>
                       <td><?=$nomor++?></td>
                       <td><?=$r['nama']?></td>
-                      <td><?=$data['nama_depan']." ".$data['nama_belakang']?></td>
-                      <td><?=$data['alamat']?></td>
+                      <td><?=$r['nama_depan']." ".$r['nama_belakang']?></td>
+                      <td><?=$r['alamat']?></td>
                       <td><?=$r['status']?></td>
                     </tr>
                     <?php } ?>

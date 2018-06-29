@@ -179,8 +179,8 @@
                       <td><?=$row['nama_depan']." ".$row['nama_belakang']?></td>
                       <td><?=$row['alamat']?></td>
                       <td><?=$row['status']?></td>
-                      <td><button type="submit" class="btn btn-primary btn-block">
-                Process</button> </td>
+                      <td><a href="penjual_statusPengiriman.php" class="btn btn-primary btn-block">
+                Process</a> </td>
                    </tr>
                    <?php }  ?>
                   </tbody>

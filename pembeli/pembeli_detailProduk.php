@@ -93,7 +93,7 @@
               <a href="ubahProfil.php" class="dropdown-item has-icon">
                 <i class="ion ion-android-person"></i> Profile
               </a>
-              <a href="#" class="dropdown-item has-icon">
+              <a href="logout.php" class="dropdown-item has-icon">
                 <i class="ion ion-log-out"></i> Logout
               </a>
             </div>
@@ -107,7 +107,7 @@
           </div>
           <div class="sidebar-user">
             <div class="sidebar-user-picture">
-              <img alt="image" src="../dist/img/avatar/avatar-1.jpeg">
+              <img alt="image" src="../imagesProfile/<?=$data['gambar']?>">
             </div>
             <div class="sidebar-user-details">
               <div class="user-name"><?=$data['nama_depan']?></div>
@@ -165,6 +165,7 @@
                   <div class="card-body">
                       <label class="form-control"><b>Nama Produk : </b> <?=$fet['nama']?> </label>
                       <label class="form-control"><b>Jenis Produk :</b> <?=$fet['fungsi']?> </label>
+                      <label class="form-control"><b>Stok :</b> <?=$fet['stok']?> </label>
                       <label class="form-control"><b>Harga :</b> <?=$fet['harga']?></label>
                       <label class="form-control"><b>Untuk Hewan :</b> <?=$fet['kategori']?> </label>
                   </div>

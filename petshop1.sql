@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2018 at 08:34 AM
+-- Generation Time: Jun 29, 2018 at 05:48 AM
 -- Server version: 10.1.22-MariaDB
 -- PHP Version: 7.1.4
 
@@ -45,8 +45,7 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id`, `nama`, `kategori`, `fungsi`, `harga`, `deskripsi`, `stok`, `gambar`, `id_user`) VALUES
-(1, 'Royal Canin', 'Kucing', 'Makanan', 10000, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 100, 'royal.jpg', 1),
-(2, 'Whiskas', 'Kucing', 'Makanan', 50000, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 50, 'whiskas.jpg', 1),
+(2, 'Whiskas', 'Kucing', 'Makanan', 50000, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 70, 'whiskas.jpg', 1),
 (3, 'Alpo', 'Anjing', 'Makanan', 150000, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 111, 'alpo.jpg', 1),
 (4, 'African', 'Burung', 'Makanan', 140000, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 100, 'african.jpg', 1),
 (5, 'Vitakraft', 'Hamster', 'Makanan', 131000, 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 100, 'Jual Vitakraft.jpg', 1),
@@ -62,7 +61,8 @@ INSERT INTO `barang` (`id`, `nama`, `kategori`, `fungsi`, `harga`, `deskripsi`, 
 
 CREATE TABLE `barang_keluar` (
   `id` int(255) NOT NULL,
-  `id_barang` int(255) NOT NULL
+  `id_barang` int(255) NOT NULL,
+  `tgl` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -73,32 +73,8 @@ CREATE TABLE `barang_keluar` (
 
 CREATE TABLE `barang_masuk` (
   `id` int(255) NOT NULL,
-  `id_barang` int(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `hewan`
---
-
-CREATE TABLE `hewan` (
-  `id` int(255) NOT NULL,
-  `jenis` varchar(100) NOT NULL,
-  `ras` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `jenis_hewan`
---
-
-CREATE TABLE `jenis_hewan` (
-  `id` int(255) NOT NULL,
-  `nama` varchar(150) NOT NULL,
-  `jenis_hewan` varchar(50) NOT NULL,
-  `ras` varchar(100) NOT NULL
+  `id_barang` int(255) NOT NULL,
+  `tgl` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -156,16 +132,46 @@ INSERT INTO `kota` (`id`, `nama`, `id_provinsi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `makanan`
+-- Table structure for table `orderdetail`
 --
 
-CREATE TABLE `makanan` (
+CREATE TABLE `orderdetail` (
   `id` int(255) NOT NULL,
-  `nama` varchar(150) NOT NULL,
-  `umur` int(11) NOT NULL,
-  `jenis_hewan` int(255) NOT NULL,
-  `ras_hewan` int(255) NOT NULL
+  `id_barang` int(255) NOT NULL,
+  `order_id` int(255) NOT NULL,
+  `harga` varchar(255) NOT NULL,
+  `stok` int(255) NOT NULL,
+  `idpenjual` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orderdetail`
+--
+
+INSERT INTO `orderdetail` (`id`, `id_barang`, `order_id`, `harga`, `stok`, `idpenjual`) VALUES
+(1, 7, 1, '50000', 2, 1),
+(2, 2, 1, '50000', 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(255) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `tanggal_pembelian` date NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `id_pembeli` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `nama`, `tanggal_pembelian`, `status`, `id_pembeli`) VALUES
+(1, 'Rizky', '2018-06-29', 'MENUNGGU VERIFIKASI', 2);
 
 -- --------------------------------------------------------
 
@@ -254,10 +260,12 @@ CREATE TABLE `user` (
   `nama_belakang` varchar(100) NOT NULL,
   `alamat` varchar(255) NOT NULL,
   `email` varchar(80) NOT NULL,
+  `postal_code` int(100) NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `password` varchar(255) NOT NULL,
-  `id_provinsi` int(10) NOT NULL,
-  `id_kota` int(10) NOT NULL,
+  `gambar` varchar(255) NOT NULL,
+  `id_provinsi` int(255) NOT NULL,
+  `id_kota` int(255) NOT NULL,
   `level` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -265,8 +273,10 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `nama_depan`, `nama_belakang`, `alamat`, `email`, `tanggal_lahir`, `password`, `id_provinsi`, `id_kota`, `level`) VALUES
-(1, 'Muhammad', 'Hakaman Athhar', 'Kaliurang', 'hakaman99@gmail.com', '1997-11-30', '5d41402abc4b2a76b9719d911017c592', 14, 14, 1);
+INSERT INTO `user` (`id`, `nama_depan`, `nama_belakang`, `alamat`, `email`, `postal_code`, `tanggal_lahir`, `password`, `gambar`, `id_provinsi`, `id_kota`, `level`) VALUES
+(1, 'Muhammad', 'Hakaman Athhar', 'Kaliurang', 'hakaman93@gmail.com', 78121, '1997-11-30', 'a9515c512e243f134c8b0d471040179b', 'default.png', 14, 14, 1),
+(2, 'Rizky', 'Ari Pratama', 'Jalan Kaliurang', 'rizkyari@gmail.com', 78121, '1997-11-22', '5d41402abc4b2a76b9719d911017c592', 'default.png', 14, 14, 0),
+(3, 'Nugroho', 'Agung', 'Jalan Godean', 'Nugroho@gmail.com', 78121, '1997-11-22', '5d41402abc4b2a76b9719d911017c592', 'default.png', 14, 14, 0);
 
 --
 -- Indexes for dumped tables
@@ -293,30 +303,27 @@ ALTER TABLE `barang_masuk`
   ADD KEY `id_barang` (`id_barang`);
 
 --
--- Indexes for table `hewan`
---
-ALTER TABLE `hewan`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `jenis_hewan`
---
-ALTER TABLE `jenis_hewan`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `kota`
 --
 ALTER TABLE `kota`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_provinsi` (`id_provinsi`);
 
 --
--- Indexes for table `makanan`
+-- Indexes for table `orderdetail`
 --
-ALTER TABLE `makanan`
+ALTER TABLE `orderdetail`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `jenis_hewan` (`jenis_hewan`),
-  ADD KEY `ras_hewan` (`ras_hewan`);
+  ADD KEY `idpenjual` (`idpenjual`),
+  ADD KEY `id_barang` (`id_barang`),
+  ADD KEY `order_id` (`order_id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_pembeli` (`id_pembeli`);
 
 --
 -- Indexes for table `provinsi`
@@ -334,7 +341,9 @@ ALTER TABLE `toko`
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_provinsi` (`id_provinsi`),
+  ADD KEY `id_kota` (`id_kota`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -351,20 +360,20 @@ ALTER TABLE `barang`
 ALTER TABLE `barang_masuk`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT for table `jenis_hewan`
---
-ALTER TABLE `jenis_hewan`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `kota`
 --
 ALTER TABLE `kota`
   MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 --
--- AUTO_INCREMENT for table `makanan`
+-- AUTO_INCREMENT for table `orderdetail`
 --
-ALTER TABLE `makanan`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `orderdetail`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `provinsi`
 --
@@ -379,7 +388,7 @@ ALTER TABLE `toko`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
@@ -397,11 +406,24 @@ ALTER TABLE `barang_masuk`
   ADD CONSTRAINT `barang_masuk_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id`);
 
 --
--- Constraints for table `makanan`
+-- Constraints for table `kota`
 --
-ALTER TABLE `makanan`
-  ADD CONSTRAINT `makanan_ibfk_1` FOREIGN KEY (`jenis_hewan`) REFERENCES `jenis_hewan` (`id`),
-  ADD CONSTRAINT `makanan_ibfk_2` FOREIGN KEY (`ras_hewan`) REFERENCES `hewan` (`id`);
+ALTER TABLE `kota`
+  ADD CONSTRAINT `kota_ibfk_1` FOREIGN KEY (`id_provinsi`) REFERENCES `provinsi` (`id`);
+
+--
+-- Constraints for table `orderdetail`
+--
+ALTER TABLE `orderdetail`
+  ADD CONSTRAINT `orderdetail_ibfk_1` FOREIGN KEY (`id_barang`) REFERENCES `barang` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `orderdetail_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`);
+
+--
+-- Constraints for table `user`
+--
+ALTER TABLE `user`
+  ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_kota`) REFERENCES `kota` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user_ibfk_2` FOREIGN KEY (`id_provinsi`) REFERENCES `provinsi` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -4,6 +4,8 @@
   <?php include('config/connect.php');
         include('akses.php');
         include('data.php');
+         include('cart.php');
+         error_reporting(0);
   ?>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
@@ -149,6 +151,7 @@
                 <div class="col-12">
                   <div class="card">
                   <div class="card-body">
+                  <form method="POST">
                   <table class="table">
                   <thead class="thead-dark">
                     <tr>
@@ -159,20 +162,50 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-              </tr>
-            </tbody>
+                    <?php 
+                      $cart = unserialize(serialize($_SESSION['cart']));
+                      $s = 0;
+                      $index = 0;
+                      $no=1;
+                      for($i=0; $i<count($cart); $i++){
+                          $s += $cart[$i]->harga * $cart[$i]->quantity;
+                    ?> 
+                    <tr style="text-align: center;">
+                      <td><?=$no++?></td>
+                      <td><?=$cart[$i]->nama;?></td>
+                      <td><?=$cart[$i]->kategori;?></td>
+                      <td><?=$cart[$i]->fungsi;?></td>
+                      <td><?=$cart[$i]->harga;?></td>
+                      <td><input type="number" min="1" value="<?php echo $cart[$i]->quantity; ?>" name="quantity[]"></td>
+                      <td style="text-align: right;">Rp. <?php echo number_format($cart[$i]->harga * $cart[$i]->quantity,0,"","."); ?></td>
+                      <td><a  href="pembeli_daftarPembelian.php?index=<?php echo $index; ?>" onclick="return confirm('Are you sure?')" ><span class="ion ion-trash-a" style="color: red"></span></a> </td>
+                    </tr>
+                      <?php 
+                         $index++;
+                      } ?>
+                      <tr style="text-align: right;">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Total</td>
+                        <td>Rp. <?=number_format($s,0,"",".");?></td>
+                        <td width="5%">
+                          <input width="100%" type="image" src="../images/save.png" name="update" alt="Save Button">
+                          <input type="hidden" name="update">
+                        </td>
+                      </tr>
+                  </tbody>
           </table><br>
+          </form>
           <div class="custom-file">
           <input type="file" class="custom-file-input" id="customFile">
           <label class="custom-file-label" for="customFile">Choose file</label>
           </div><br><br>
-          <button type="submit" class="btn btn-danger btn-block">Konfirmasi Pembayaran</button>
+          <a href="checkout.php" class="btn btn-danger btn-block">Konfirmasi Pembayaran</a>
           <br> 
+          
               </div>
             </div>
           </div>

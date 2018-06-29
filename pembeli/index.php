@@ -162,8 +162,8 @@
                         <p><h6>Kategori  : <?=$row['kategori'];?></h6></p>
                         <p><h6>Harga     : Rp. <?=number_format($row['harga'],0,"",".");?></h6></p>
                       </div>
-                      <button type="submit" class="btn btn-primary btn-block">
-                See More Detail</button> 
+                      <a href="pembeli_detailProduk.php?id=<?=$row['id']?>" class="btn btn-primary btn-block">
+                See More Detail</a>
                     </div>
                   </div></center>
                 </div>

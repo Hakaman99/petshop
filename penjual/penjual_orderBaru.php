@@ -150,26 +150,39 @@
                   <table class="table">
                   <thead class="thead-dark">
                     <tr>
+                      <td>No</td>
                       <td>Nama Produk</td>
                       <td>Jenis Produk</td>
+                      <td>Untuk Hewan</td>
                       <td>Harga</td>
+                      <td>Quantity</td>
                       <td>Nama Pembeli</td>
                       <td>Alamat Pembeli</td>
-                      <td>Keterangan</td>
                       <td>Status</td>
                     </tr>
                   </thead>
                   <tbody>
+                    <?php
+                      $no=1;
+                      $id =$data['id'];
+                      $sql = "SELECT b.nama,b.fungsi,b.kategori,b.harga,a.stok,e.nama_depan,e.nama_belakang,d.alamat,c.status FROM orderdetail a JOIN barang b ON (a.id_barang = b.id) JOIN orders c ON (a.order_id = c.id) JOIN user d ON ('$id' =d.id) JOIN user e ON (c.id_pembeli=e.id)";
+                      $result = mysqli_query($con, $sql);
+                      while ($row = mysqli_fetch_array($result)) {
+                    ?>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td><?=$no?></td>
+                      <td><?=$row['nama']?></td>
+                      <td><?=$row['fungsi']?></td>
+                      <td><?=$row['kategori']?></td>
+                      <td><?=$row['harga']?></td>
+                      <td><?=$row['stok']?></td>
+                      <td><?=$row['nama_depan']." ".$row['nama_belakang']?></td>
+                      <td><?=$row['alamat']?></td>
+                      <td><?=$row['status']?></td>
                       <td><button type="submit" class="btn btn-primary btn-block">
                 Process</button> </td>
                    </tr>
+                   <?php }  ?>
                   </tbody>
                 </table>
               </div>

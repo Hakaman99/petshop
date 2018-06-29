@@ -4,6 +4,11 @@
   <?php include('config/connect.php');
         include('akses.php');
         include('data.php');
+       
+        $id= $_GET['id'];
+        $sql = "SELECT * FROM barang WHERE id='$id'";
+        $r = mysqli_query($con,$sql);
+        $fet = mysqli_fetch_array($r);
   ?>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" name="viewport">
@@ -102,12 +107,12 @@
           </div>
           <div class="sidebar-user">
             <div class="sidebar-user-picture">
-              <img alt="image" src="../imagesProfile/<?=$data['gambar']?>">
+              <img alt="image" src="../dist/img/avatar/avatar-1.jpeg">
             </div>
             <div class="sidebar-user-details">
               <div class="user-name"><?=$data['nama_depan']?></div>
               <div class="user-role">
-                PENJUAL
+                PEMBELI
               </div>
             </div>
           </div>
@@ -147,9 +152,9 @@
             <center><div class="col-lg-3 col-md-6 col-12">
               <center><div class="card card-sm-3">
                 <div class="card-wrap">
-                  <img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"><br>
+                  <img src="../images/<?=$fet['gambar']?>" class="img-responsive" width="202" height="173" alt="Image"><br>
                   <div class="card-header">
-                    <h4>Makanan Kucing</h4>
+                    <h4><?=$fet['fungsi']." ".$fet['kategori'];?></h4>
                   </div>
                 </div>
               </div></center>
@@ -158,21 +163,22 @@
                 <div class="col-12">
                   <div class="card">
                   <div class="card-body">
-                      <label class="form-control">Nama Produk : </label>
-                      <label class="form-control">Jenis Produk : </label>
-                      <label class="form-control">Harga : </label>
-                      <label class="form-control">Untuk Hewan : </label>
-              </div>
+                      <label class="form-control"><b>Nama Produk : </b> <?=$fet['nama']?> </label>
+                      <label class="form-control"><b>Jenis Produk :</b> <?=$fet['fungsi']?> </label>
+                      <label class="form-control"><b>Harga :</b> <?=$fet['harga']?></label>
+                      <label class="form-control"><b>Untuk Hewan :</b> <?=$fet['kategori']?> </label>
+                  </div>
             </div>
           </div>
           <div class="col-12">
                   <div class="card">
                   <div class="card-body">
-                      <label>Keterangan : </label>
+                      <label><b>Keterangan : </b> </label>
+                      <label><?=$fet['deskripsi']?>  </label>
               </div>
             </div>
-            <button type="submit" class="btn btn-danger btn-block">
-                      Masukkan ke Keranjang</button>
+            <a href="pembeli_daftarPembelian.php?id= <?php echo $fet['id']; ?> &action=add" class="btn btn-danger btn-block">
+                      Masukkan ke Keranjang</a>
           </div> 
         </div>
       </div>

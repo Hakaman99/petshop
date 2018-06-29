@@ -144,68 +144,7 @@
           <h2 class="section-header">
             <div>Keranjang Belanja</div>
           </h2>
-                    <div class="row">
-            <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <div class="card-header">
-                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
-                  </div>
-                  <div class="card-body">
-                    <p><h6>Nama  : WhisWhis</h6></p>
-                    <p><h6>Jenis : Persia</h6></p>
-                    <p><h6>Harga : $25</h6></p>
-                    <button type="submit" class="btn btn-danger btn-block">Bayar</button>
-                  </div>
-                </div>
-              </div></center>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <div class="card-header">
-                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
-                  </div>
-                  <div class="card-body">
-                    <p><h6>Nama  : WhisWhis</h6></p>
-                    <p><h6>Jenis : Persia</h6></p>
-                    <p><h6>Harga : $25</h6></p>
-                    <button type="submit" class="btn btn-danger btn-block">Bayar</button>
-                  </div>
-                </div>
-              </div></center>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <div class="card-header">
-                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
-                  </div>
-                  <div class="card-body">
-                    <p><h6>Nama  : WhisWhis</h6></p>
-                    <p><h6>Jenis : Persia</h6></p>
-                    <p><h6>Harga : $25</h6></p>
-                    <button type="submit" class="btn btn-danger btn-block">Bayar</button>
-                  </div>
-                </div>
-              </div></center>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12">
-              <center><div class="card card-sm-3">
-                <div class="card-wrap">
-                  <div class="card-header">
-                    <div class="panel-body" ><img src="../images/whiskas.jpg" class="img-responsive" width="202" height="173" alt="Image"></div>
-                  </div>
-                  <div class="card-body">
-                    <p><h6>Nama  : WhisWhis</h6></p>
-                    <p><h6>Jenis : Persia</h6></p>
-                    <p><h6>Harga : $25</h6></p>
-                    <button type="submit" class="btn btn-danger btn-block">Bayar</button>
-                  </div>
-                </div>
-              </div></center>
-            </div>
-          </div>
+            
       </section>
     </div>
       <footer class="main-footer">

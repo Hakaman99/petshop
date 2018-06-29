@@ -152,19 +152,28 @@
                   <table class="table">
                   <thead class="thead-dark">
                     <tr>
+                      <td>No</td>
                       <td>Nama Barang</td>
-                      <td>Nama Pembeli</td>
+                      <td>Nama Penerima</td>
                       <td>Alamat</td>
                       <td>Status Pengiriman</td>
                     </tr>
                   </thead>
                   <tbody>
+                    <?php
+                      $sql = "SELECT b.nama,c.status FROM orderdetail a JOIN barang b ON (a.id_barang = b.id) JOIN orders c ON (a.order_id = c.id)";
+                      $nomor=1;
+                      $q = mysqli_query($con,$sql);
+                      while ($r = mysqli_fetch_array($q)) {
+                    ?>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-              </tr>
+                      <td><?=$nomor++?></td>
+                      <td><?=$r['nama']?></td>
+                      <td><?=$data['nama_depan']." ".$data['nama_belakang']?></td>
+                      <td><?=$data['alamat']?></td>
+                      <td><?=$r['status']?></td>
+                    </tr>
+                    <?php } ?>
             </tbody>
           </table>
               </div>

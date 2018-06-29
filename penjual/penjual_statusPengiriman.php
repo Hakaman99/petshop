@@ -157,10 +157,16 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <?php
+                      $id =$data['id'];
+                      $sql ="SELECT b.nama,b.fungsi,b.kategori,b.harga,a.stok,e.nama_depan,e.nama_belakang,d.alamat,c.status FROM orderdetail a JOIN barang b ON (a.id_barang = b.id) JOIN orders c ON (a.order_id = c.id) JOIN user d ON ('$id' =d.id) JOIN user e ON (c.id_pembeli=e.id)";
+                      $q=mysqli_query($con,$sql);
+                      while ( $row = mysqli_fetch_array($q)) {
+                    ?>
                     <tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td><?=$row['nama']?></td>
+                      <td><?=$row['nama_depan']." ".$row['nama_belakang']?></td>
+                      <td><?=$row['alamat']?></td>
                       <td>
                         <div class="form-group">
                         <select class="form-control" id="exampleFormControlSelect1">
@@ -171,7 +177,7 @@
                         </select>
                       </div>
                       </td>
-              </tr>
+              </tr><?php } ?>
             </tbody>
           </table>
           <br>
